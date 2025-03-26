@@ -13,7 +13,15 @@
       {
         "tab": "Documentation",
         "groups": [
-                {
+                   {
+            "group": "Get Started",
+            "pages": [
+              "introduction",
+              "quickstart",
+              "development"
+            ]
+          },      
+          {
         "group": "Vision MIS",
         "pages": [
           "visionmis/installation",
@@ -22,24 +30,13 @@
             "pages": ["visionmis/fp/createprofile", "visionmis/fp/loginanduseragreement", "visionmis/fp/homepage", "visionmis/fp/browsestudentspage", "visionmis/fp/studentprofile", "visionmis/fp/yeargrouppage", "visionmis/fp/browseallstaff", "visionmis/fp/eventpage", "visionmis/fp/staffattendance", "visionmis/fp/schooldetailspage", "visionmis/fp/timetablepage", "visionmis/fp/lessonoverviewpage", "visionmis/fp/usersandsecuritypage", "visionmis/fp/behaviourdashboard", "visionmis/fp/oncalls", "visionmis/fp/visionsettings"]
           }
         ]
-      },
-          {
-            "group": "Get Started",
-            "pages": [
-              "introduction",
-              "quickstart",
-              "development"
-            ]
           },
           {
-            "group": "Essentials",
+            "group": "Radiolink",
             "pages": [
-              "essentials/markdown",
-              "essentials/code",
-              "essentials/images",
-              "essentials/settings",
-              "essentials/navigation",
-              "essentials/reusable-snippets"
+              "radiolink/installation",
+              "radiolink/configuration",
+              "radiolink/features"
             ]
           }
         ]
