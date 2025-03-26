@@ -18,8 +18,7 @@
         "pages": [
           "quickstart",
           {
-            "group": "Editing",
-            "icon": "pen-paintbrush",
+            "group": "Features & Pages",
             "pages": ["development", "web-editor"]
           }
         ]
