@@ -13,6 +13,17 @@
       {
         "tab": "Documentation",
         "groups": [
+                {
+        "group": "Getting Started",
+        "pages": [
+          "quickstart",
+          {
+            "group": "Editing",
+            "icon": "pen-paintbrush",
+            "pages": ["development", "web-editor"]
+          }
+        ]
+      },
           {
             "group": "Get Started",
             "pages": [
