@@ -16,10 +16,10 @@
                 {
         "group": "Vision Education MIS",
         "pages": [
-          "quickstart",
+          "visionmis/installation",
           {
             "group": "Features & Pages",
-            "pages": ["vision/createprofile", "web-editor"]
+            "pages": ["visionmis/fp/createprofile", "visionmis/fp/loginanduseragreement", "visionmis/fp/homepage", ]
           }
         ]
       },
