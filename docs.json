@@ -62,14 +62,14 @@
   "navbar": {
     "links": [
       {
-        "label": "Support",
-        "href": "mailto:hi@mintlify.com"
+        "label": "Contact Support",
+        "href": "mailto:support@jadevelopment.co.uk"
       }
     ],
     "primary": {
       "type": "button",
-      "label": "Dashboard",
-      "href": "https://dashboard.mintlify.com"
+      "label": "Go to jaDevelopment",
+      "href": "https://jadevelopment.co.uk"
     }
   },
   "footer": {
