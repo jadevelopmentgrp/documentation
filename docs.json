@@ -19,7 +19,7 @@
           "visionmis/installation",
           {
             "group": "Features & Pages",
-            "pages": ["visionmis/fp/createprofile", "visionmis/fp/loginanduseragreement", "visionmis/fp/homepage", ]
+            "pages": ["visionmis/fp/createprofile", "visionmis/fp/loginanduseragreement", "visionmis/fp/homepage"]
           }
         ]
       },
