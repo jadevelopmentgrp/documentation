@@ -19,7 +19,7 @@
           "quickstart",
           {
             "group": "Features & Pages",
-            "pages": ["development", "web-editor"]
+            "pages": ["vision/createprofile", "web-editor"]
           }
         ]
       },
