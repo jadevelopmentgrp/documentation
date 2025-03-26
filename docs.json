@@ -38,19 +38,14 @@
     "global": {
       "anchors": [
         {
-          "anchor": "Documentation",
-          "href": "https://mintlify.com/docs",
-          "icon": "book-open-cover"
+          "anchor": "System Status",
+          "href": "https://status.jadevelopment.co.uk/en",
+          "icon": "lightbulb"
         },
         {
           "anchor": "Community",
           "href": "https://discord.gg/E4yHfQegnP",
           "icon": "discord"
-        },
-        {
-          "anchor": "Blog",
-          "href": "https://mintlify.com/blog",
-          "icon": "newspaper"
         }
       ]
     }
