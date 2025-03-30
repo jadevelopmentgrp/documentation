@@ -5,44 +5,65 @@ description: "Comprehensive instructions on how to set up Vision MIS with your g
 
 # Studio Setup
 
-The following instructions are to be used for installing **Vision MIS **into your game through Roblox Studio. Please head to [link here] for setting up discord integration.
+The following instructions are to be used for installing **Vision MIS** into your game through Roblox Studio. Please head to [link here] for setting up discord integration.
 
-## Security Settings
+<Icon icon="money-bill-wave" />  **Ensure you have the licence for this product, available through** [our website](https://jadevelopment.co.uk/products/jadevelopment-vision)
+
+## Getting started
 
 <Note>
   You must enable **HTTP Requests** and **API Services** within the Game Settings tab in Roblox studio. This is located under the Security section. Please ensure this is enabled before opening a ticket with our support team.
 </Note>
 
-## Edit and preview
+<Steps>
+  <Step title="Place the file in Workspace">
+    After downloading the product file, drag and drop into Workspace under your game
+  </Step>
+  <Step title="Ensure HTTP requests/API services are enabled">
+    Check to make sure your security settings are correct. You can do this by heading to **Home **in Roblox Studio, then **Game Settings**, 
+  </Step>
+</Steps>
+
+## Configuration
+
+Under the **jaVision** folder provided, there will be a <u>Settings</u> script. Please open it to continue.
 
 <AccordionGroup>
-  <Accordion title="Clone your docs locally" icon="github">
-    During the onboarding process, we created a repository on your Github with
-    your docs content. You can find this repository on our
-    [dashboard](https://dashboard.mintlify.com). To clone the repository
-    locally, follow these
-    [instructions](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository)
-    in your terminal.
+  <Accordion title="Configure Group" icon="user-group">
+    An example for configuring your group is below
+
+    ```python
+    ["GroupID"] = 14665139, -- Group ID
+    ["StaffID"] = 1, -- Minimum staff role ID to use system
+    ["AdminID"] = 1, -- Minimum admin role ID to use more advanced features, for administrators/leadership only
+    ["StudentID"] = 1, -- Maximum student role ID
+    ["SchoolName"] = "jaDevelopment", -- School name
+    ["SchoolType"] = "Secondary", -- Type of school (ie. primary, secondary, academy)
+    ["IconID"] = 0, -- Custom school logo ID
+    ```
+
+    | **Options** | **Description**                                                                                                            |
+    | ----------- | -------------------------------------------------------------------------------------------------------------------------- |
+    | GroupID     | The ID of your Roblox group                                                                                                |
+    | StaffID     | The minimum role ID a user has to be to access the staff version of Vision                                                 |
+    | AdminID     | The minimum role ID a user has to be to access specific features, such as timetabling, settings, etc                       |
+    | StudentID   | The maximum role ID a user has to be to be considered a student (e.g **10\+** for staff, **9** **and below** for students) |
+    | SchoolName  | Your specific school name                                                                                                  |
+    | SchoolType  | Type of school (e.g <u>primary, secondary, academy</u>)                                                                    |
+    | IconID      | A designated decal image ID for your school, appears on all Vision assets/features                                         |
   </Accordion>
-  <Accordion title="Preview changes" icon="rectangle-terminal">
-    Previewing helps you make sure your changes look as intended. We built a
-    command line interface to render these changes locally.
+  <Accordion title="Data configuration" icon="database">
+    ```python
+    ["VisionPlayerDataStoreKey"] = "RANDOMKEY-Players", -- Change this to anything of your choice (stores player data)
+    ["VisionSettingsDataStoreKey"] = "RANDOMKEY-Settings", -- Change this to anything of your choice (stores general vision settings)
+    ```
 
-    1. Install the
-       [Mintlify CLI](https://www.npmjs.com/package/mintlify) to preview the
-       documentation changes locally with this command: `npm i -g mintlify`
-    2. Run the following command at the root of your documentation (where
-       `docs.json` is): `mintlify dev`
+    You are required to have unique **data store keys**, which are a series of random words or numbers that are used to identify and store data within your game.
 
-    <Note>
-      If you’re currently using the legacy `mint.json` configuration file, please update the Mintlify CLI:
-
-      `npm i -g mintlify@latest`
-      And run the new upgrade command in your docs repository:
-
-      `mintlify upgrade`
-      You should now be using the new `docs.json` configuration file. Feel free to delete the `mint.json` file from your repository.
-    </Note>
+    | **Options**                | **Description**                                                                                    |
+    | -------------------------- | -------------------------------------------------------------------------------------------------- |
+    | VisionPlayerDataStoreKey   | A random key of your choosing. Saves player data for the system                                    |
+    | VisionSettingsDataStoreKey | A random key of your choosing. Saves [vision settings](/visionmis/fp/visionsettings) for your game |
   </Accordion>
 </AccordionGroup>
 
