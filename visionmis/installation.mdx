@@ -20,7 +20,7 @@ The following instructions are to be used for installing **Vision MIS** into you
     After downloading the product file, drag and drop into Workspace under your game
   </Step>
   <Step title="Ensure HTTP requests/API services are enabled">
-    Check to make sure your security settings are correct. You can do this by heading to **Home **in Roblox Studio, then **Game Settings**, 
+    Check to make sure your security settings are correct. You can do this by heading to \*\*Home \*\*in Roblox Studio, then **Game Settings**,
   </Step>
 </Steps>
 
@@ -64,6 +64,174 @@ Under the **jaVision** folder provided, there will be a <u>Settings</u> script. 
     | -------------------------- | -------------------------------------------------------------------------------------------------- |
     | VisionPlayerDataStoreKey   | A random key of your choosing. Saves player data for the system                                    |
     | VisionSettingsDataStoreKey | A random key of your choosing. Saves [vision settings](/visionmis/fp/visionsettings) for your game |
+  </Accordion>
+  <Accordion title="Webhook integration" icon="webhook">
+    A webhook is a **discord integration** that allows you to send authorised messages to a discord channel from an external application, in this case, **Vision MIS.**
+
+    <Tip>
+      Learn more about [discord webhooks](https://support.discord.com/hc/en-us/articles/228383668-Intro-to-Webhooks), and how to set them up
+    </Tip>
+    ```python
+    ["VisionWebhookURL"] = "",
+    ["WebhookColors"] = { -- Must be a hex value, with '0x' positioned before
+    	["Green"] = tonumber(0x2c8c26),
+    	["Red"] = tonumber(0xba2b20),
+    	["Orange"] = tonumber(0xff9220),
+    	["Grey"] = tonumber(0x595959)
+    },
+    ```
+
+    For your webhook colours, the ones provided are default, and you **<u>do not need to change these</u>**. Feel free to use this [colour picker](https://g.co/kgs/d9iGsLL) if you wish to change these colours. 
+
+    <Check>
+      When you find a colour you want to use, copy the **HEX** code provided. For example, I will use `#0d0d0d` . In the configuration above, you would place any digits <u>after</u> the 0x, so instead of `tonumber(0x2c8c26),`  it now looks like `tonumber(#0x0d0d0d),`
+    </Check>
+  </Accordion>
+  <Accordion title="In-game commands" icon="message">
+    In-game commands are a recently added feature, allowing you to quickly perform actions without directly interacting with the Vision MIS dashboard.
+
+    ```python
+    ["Commands"] = {
+    	-- Chat-based Vision control commands
+    	Enabled = true, -- Enable/disable commands
+    	Prefix = "%", -- Command prefix
+    	
+    	["CommandNames"] = {
+    		Isolate = "isolate", -- e.g %isolate USER REASON or %isolate USER
+    		Positive = "merit", -- e.g %merit USER AMOUNT or %merit USER
+    		Negative = "demerit", -- e.g %demerit USER AMOUNT or %demerit USER
+    		Relocate = "relocate", -- e.g %relocate USER REASON or %relocate USER
+    		NonUniform = "nonuniform", -- e.g %nonuniform USER
+    		Timeout = "timeout", -- e.g %timeout USER
+    	}
+    },
+    ```
+
+    The code snippet above contains **key attributes** that determine the functionality of the  commands
+
+    - To **disable commands**, replace `Enabled = true` with `Enabled = false`
+    - To **change the prefix** for commands, replace `Prefix = "%"` with your own prefix, for example `Prefix = ":"` 
+    - To change a command name, look for the command you want to change under `["CommandNames"]` and replace the command name in the " " with your new command name.
+      - For example, replace `Positive = "merit"` with `Positive = "positive"`
+  </Accordion>
+  <Accordion title="On call alerts" icon="diamond-exclamation">
+    On call alerts allow specific users with specific roles to receive alerts when a request is made from a member of staff. The configuration for this is very simple
+
+    ```python
+    ["OnCallsEnabled"] = true,
+    ["RankIDs"] = {1, 2, 3}, -- Choose every rank ID, separated by a comma which are able to manage on call alerts
+    ```
+
+    Within `["RankIDs"] = {1, 2, 3}`, **you can add or remove role IDs**. These IDs are gathered from your Roblox group. 
+
+    To add a new role to the list, just add the number of the role ID in the `{}` . For example, if I added 255, it would now look like `{1, 2, 3, 255}`
+  </Accordion>
+  <Accordion title="Nametags" icon="tags">
+    A series of <u>attributes</u> for nametags can be toggled to adjust to your needs
+
+    ```python
+    ["NametagsEnabled"] = true, -- Toggle nametags being visible
+    ["Staff Icon"] = true, -- Toggles staff icon above staff nametag
+    ["Admin Icon"] = true, -- Toggles admin icon above admin nametag
+    ```
+
+    - **To disable one of the above**, just change `true` to `false`
+  </Accordion>
+  <Accordion title="Gamepasses and lanyards" icon="passport">
+    You are **_no longer required to use gamepass IDs_** to give out non-uniform or timeout passes. To disable the gamepass feature, just set the `GamepassID` to `0` . Otherwise, replace 0 with your gamepass ID if you wish to use this feature.
+
+    <Tabs>
+      <Tab title="Non Uniform">
+        ```python
+        ["NonUniformPass"] = { 
+        	Enabled = false, 
+        	GamepassID = 0, 
+        },
+        ```
+      </Tab>
+      <Tab title="Timeout">
+        ```python
+        ["TimeoutPass"] = { 
+        	Enabled = false, 
+        	GamepassID = 0, 
+        },
+        ```
+      </Tab>
+      <Tab title="Lanyards">
+        ```python
+        ["Lanyards"] = {
+        	Enabled = true, 
+        	ColorTheme = Color3.fromRGB(255, 146, 32),
+        	LogoID = 0
+        },
+        ```
+
+        When lanyards are set to `Enabled = true`, staff will receive lanyards automatically. Please set this to false if you wish for staff **not **to have built in Vision lanyards.
+      </Tab>
+      <Tab title="Custom Lanyards">
+        ```python
+        ["CustomLanyards"] = {
+        	Enabled = false,
+        		
+        	GroupLanyards = {
+        		["Sixth Form"] = {
+        			Enabled = false,
+        			CardColourTheme = Color3.fromRGB(34, 67, 35),
+        			LanyardTitleColour = Color3.fromRGB(255, 255, 255),
+        			TextureType = "Student" 
+        		},
+        	},
+        },
+        ```
+
+        Custom Lanyards allow you to give out unique lanyards to specific year groups
+
+        <Steps>
+          <Step title="Copy the example provided">
+            To create a new group lanyard, copy the following
+
+            ```python
+            ["Group Name"] = {
+            	Enabled = false,
+            	CardColourTheme = Color3.fromRGB(34, 67, 35),
+            	LanyardTitleColour = Color3.fromRGB(255, 255, 255),
+            	TextureType = "Student" 
+            },
+            ```
+          </Step>
+          <Step title="Paste it underneath the already existing custom lanyard">
+            ```python
+            ["CustomLanyards"] = {
+            	Enabled = false,
+            		
+            	GroupLanyards = {
+            		["Sixth Form"] = {
+            			Enabled = false,
+            			CardColourTheme = Color3.fromRGB(34, 67, 35),
+            			LanyardTitleColour = Color3.fromRGB(255, 255, 255),
+            			TextureType = "Student" 
+            		},
+            		["Group Name"] = {
+            			Enabled = false,
+            			CardColourTheme = Color3.fromRGB(34, 67, 35),
+            			LanyardTitleColour = Color3.fromRGB(255, 255, 255),
+            			TextureType = "Student" 
+            		},
+            	},
+            },
+            ```
+          </Step>
+          <Step title="All done! You can now configure it">
+            You have successfully added your own custom lanyard. Ensure to set `Enabled = true` for it to take effect
+
+            - `TextureType` is a configurable setting so the lanyard shows various different textures depending on the group type for example.
+            - Set the TextureType to one of the following: **Senior Leader, Student, Staff or Custom. **For example `TextureType = "Senior Leader"`, or `TextureType = "Custom"`
+            - You must set your group name correctly. Replace `["Group Name"]` with the name of the **year group** that you want to issue this lanyard to. You can find <u>group settings</u> later on in the configuration.
+            - For example, if my **Group Name** was **Year 7**, I would set it to `["Year 7"]`
+          </Step>
+        </Steps>
+      </Tab>
+    </Tabs>
   </Accordion>
 </AccordionGroup>
 
