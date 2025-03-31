@@ -20,7 +20,7 @@ The following instructions are to be used for installing **Vision MIS** into you
     After downloading the product file, drag and drop into Workspace under your game
   </Step>
   <Step title="Ensure HTTP requests/API services are enabled">
-    Check to make sure your security settings are correct. You can do this by heading to \*\*Home \*\*in Roblox Studio, then **Game Settings**,
+    Check to make sure your security settings are correct. You can do this by heading to **Home** in Roblox Studio, then **Game Settings**,
   </Step>
 </Steps>
 
@@ -81,7 +81,7 @@ Under the **jaVision** folder provided, there will be a <u>Settings</u> script. 
     },
     ```
 
-    For your webhook colours, the ones provided are default, and you **<u>do not need to change these</u>**. Feel free to use this [colour picker](https://g.co/kgs/d9iGsLL) if you wish to change these colours. 
+    For your webhook colours, the ones provided are default, and you **<u>do not need to change these</u>**. Feel free to use this [colour picker](https://g.co/kgs/d9iGsLL) if you wish to change these colours.
 
     <Check>
       When you find a colour you want to use, copy the **HEX** code provided. For example, I will use `#0d0d0d` . In the configuration above, you would place any digits <u>after</u> the 0x, so instead of `tonumber(0x2c8c26),`  it now looks like `tonumber(#0x0d0d0d),`
@@ -110,7 +110,7 @@ Under the **jaVision** folder provided, there will be a <u>Settings</u> script. 
     The code snippet above contains **key attributes** that determine the functionality of the  commands
 
     - To **disable commands**, replace `Enabled = true` with `Enabled = false`
-    - To **change the prefix** for commands, replace `Prefix = "%"` with your own prefix, for example `Prefix = ":"` 
+    - To **change the prefix** for commands, replace `Prefix = "%"` with your own prefix, for example `Prefix = ":"`
     - To change a command name, look for the command you want to change under `["CommandNames"]` and replace the command name in the " " with your new command name.
       - For example, replace `Positive = "merit"` with `Positive = "positive"`
   </Accordion>
@@ -122,7 +122,7 @@ Under the **jaVision** folder provided, there will be a <u>Settings</u> script. 
     ["RankIDs"] = {1, 2, 3}, -- Choose every rank ID, separated by a comma which are able to manage on call alerts
     ```
 
-    Within `["RankIDs"] = {1, 2, 3}`, **you can add or remove role IDs**. These IDs are gathered from your Roblox group. 
+    Within `["RankIDs"] = {1, 2, 3}`, **you can add or remove role IDs**. These IDs are gathered from your Roblox group.
 
     To add a new role to the list, just add the number of the role ID in the `{}` . For example, if I added 255, it would now look like `{1, 2, 3, 255}`
   </Accordion>
@@ -166,7 +166,7 @@ Under the **jaVision** folder provided, there will be a <u>Settings</u> script. 
         },
         ```
 
-        When lanyards are set to `Enabled = true`, staff will receive lanyards automatically. Please set this to false if you wish for staff **not **to have built in Vision lanyards.
+        When lanyards are set to `Enabled = true`, staff will receive lanyards automatically. Please set this to false if you wish for staff \*\*not \*\*to have built in Vision lanyards.
       </Tab>
       <Tab title="Custom Lanyards">
         ```python
@@ -225,7 +225,7 @@ Under the **jaVision** folder provided, there will be a <u>Settings</u> script. 
             You have successfully added your own custom lanyard. Ensure to set `Enabled = true` for it to take effect
 
             - `TextureType` is a configurable setting so the lanyard shows various different textures depending on the group type for example.
-            - Set the TextureType to one of the following: **Senior Leader, Student, Staff or Custom. **For example `TextureType = "Senior Leader"`, or `TextureType = "Custom"`
+            - Set the TextureType to one of the following: \*\*Senior Leader, Student, Staff or Custom. \*\*For example `TextureType = "Senior Leader"`, or `TextureType = "Custom"`
             - You must set your group name correctly. Replace `["Group Name"]` with the name of the **year group** that you want to issue this lanyard to. You can find <u>group settings</u> later on in the configuration.
             - For example, if my **Group Name** was **Year 7**, I would set it to `["Year 7"]`
           </Step>
