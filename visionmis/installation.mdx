@@ -220,6 +220,7 @@ Under the **jaVision** folder provided, there will be a <u>Settings</u> script. 
             - Set the TextureType to one of the following: **Senior Leader, Student, Staff or Custom.** For example `TextureType = "Senior Leader"`, or `TextureType = "Custom"`
             - You must set your group name correctly. Replace `["Group Name"]` with the name of the **year group** that you want to issue this lanyard to. You can find <u>group settings</u> later on in the configuration.
             - For example, if my **Group Name** was **Year 7**, I would set it to `["Year 7"]`
+            - Add each of the **Roblox group role IDs** into the `RoleIds = {}` separated by a comma. Each of these roles will be given the lanyard
           </Step>
         </Steps>
       </Tab>
@@ -278,6 +279,102 @@ Under the **jaVision** folder provided, there will be a <u>Settings</u> script. 
     | `Session Details Screen Position` | 1 (Top), 2 (Bottom Left) , 3 (Bottom) or 4 (Bottom Right) |
     | `ColourTheme`                     | Click the values in the `fromRGB()` to select a colour    |
     | `Timezone`                        | `BST, GMT, EET, CET, ET, CT, AEST, AEDT`                  |
+  </Accordion>
+  <Accordion title="Groups" icon="user-group">
+    ```javascript
+    ["Groups"] = { -- List of student groups.
+    	{ Name = "Year 7", Roles = {1, 255} },
+    	{ Name = "Year 8", Roles = {0} },
+    	{ Name = "Year 9", Roles = {0} },
+    	{ Name = "Year 10", Roles = {0} },
+    	{ Name = "Year 11", Roles = {0} },
+    	{ Name = "SEN", Roles = {0} },
+    },
+    ```
+
+    A group within Vision **is a collection of students**, arranged by **Roblox group role IDs** into their own category. The default template is above.
+
+    ## How to add a new group
+
+    <Steps>
+      <Step title="Add a new goup">
+        Copy the following and paste it under the last group that is in the list
+
+        ```javascript
+        { Name = "Template", Roles = {0} },
+        ```
+      </Step>
+      <Step title="Paste it underneath the last group">
+        Your groups should now look like this
+
+        ```javascript
+        ["Groups"] = { -- List of student groups.
+        	{ Name = "Year 7", Roles = {1, 255} },
+        	{ Name = "Year 8", Roles = {0} },
+        	{ Name = "Year 9", Roles = {0} },
+        	{ Name = "Year 10", Roles = {0} },
+        	{ Name = "Year 11", Roles = {0} },
+        	{ Name = "SEN", Roles = {0} },
+        	{ Name = "Template", Roles = {0} },
+        },
+        ```
+      </Step>
+      <Step title="All done!">
+        Start configuring your group **role ids** or **name**. Each of the role IDs should be separated by a comma within the `{}`
+      </Step>
+    </Steps>
+  </Accordion>
+  <Accordion title="Lessons/periods" icon="timer">
+    **Lastly **- one of the most relevant sections of the configuration process, is organising your periods/lessons for the regular day
+
+    ```javascript
+    ["ClosureTime"] = "20:55",
+    	["Periods"] = {
+    		{ Name = "Form", Time = "19:10", AttendanceIsLogged = true},
+    		{ Name = "Period 1", Time = "19:25", AttendanceIsLogged = true},
+    		{ Name = "Period 2", Time = "19:40", AttendanceIsLogged = true},
+    		{ Name = "Break", Time = "19:55", AttendanceIsLogged = false},
+    		{ Name = "Period 3", Time = "20:05", AttendanceIsLogged = true},
+    		{ Name = "Lunch", Time = "20:20", AttendanceIsLogged = false},
+    		{ Name = "Period 4", Time = "20:30", AttendanceIsLogged = true},
+    		{ Name = "Period 5", Time = "20:45", AttendanceIsLogged = true},
+    }
+    ```
+
+    `["ClosureTime"] = "20:55",`  - **this is the the time the last scheduled lesson ends**\
+    `AttendanceIsLogged = true`  - **this is for lessons, not breaks or lunches**. Set this to `false` if you want to have a <u>lesson or other timteabled session to </u>**<u>not </u>**<u>to be registered</u>
+
+    ## How to add a new lesson
+
+    <Steps>
+      <Step title="Copy the sample code">
+        Copy the template as shown below 
+
+        ```javascript
+        { Name = "Template", Time = "00:00", AttendanceIsLogged = true},
+        ```
+      </Step>
+      <Step title="Paste it underneath the last lesson listed">
+        Your **Periods** table should now look like
+
+        ```javascript
+        ["Periods"] = {
+        	{ Name = "Form", Time = "19:10", AttendanceIsLogged = true},
+        	{ Name = "Period 1", Time = "19:25", AttendanceIsLogged = true},
+        	{ Name = "Period 2", Time = "19:40", AttendanceIsLogged = true},
+        	{ Name = "Break", Time = "19:55", AttendanceIsLogged = false},
+        	{ Name = "Period 3", Time = "20:05", AttendanceIsLogged = true},
+        	{ Name = "Lunch", Time = "20:20", AttendanceIsLogged = false},
+        	{ Name = "Period 4", Time = "20:30", AttendanceIsLogged = true},
+        	{ Name = "Period 5", Time = "20:45", AttendanceIsLogged = true},
+        	{ Name = "Template", Time = "00:00", AttendanceIsLogged = true},
+        }
+        ```
+      </Step>
+      <Step title="All done!">
+        You have successfully created a new period. You can now **edit the name and time** as shown above.
+      </Step>
+    </Steps>
   </Accordion>
 </AccordionGroup>
 
