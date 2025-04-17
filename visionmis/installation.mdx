@@ -32,7 +32,7 @@ Under the **jaVision** folder provided, there will be a <u>Settings</u> script. 
   <Accordion title="Configure Group" icon="user-group">
     An example for configuring your group is below
 
-    ```python
+    ```javascript
     ["GroupID"] = 14665139, -- Group ID
     ["StaffID"] = 1, -- Minimum staff role ID to use system
     ["AdminID"] = 1, -- Minimum admin role ID to use more advanced features, for administrators/leadership only
@@ -53,7 +53,7 @@ Under the **jaVision** folder provided, there will be a <u>Settings</u> script. 
     | IconID      | A designated decal image ID for your school, appears on all Vision assets/features                                         |
   </Accordion>
   <Accordion title="Data configuration" icon="database">
-    ```python
+    ```javascript
     ["VisionPlayerDataStoreKey"] = "RANDOMKEY-Players", -- Change this to anything of your choice (stores player data)
     ["VisionSettingsDataStoreKey"] = "RANDOMKEY-Settings", -- Change this to anything of your choice (stores general vision settings)
     ```
@@ -73,36 +73,24 @@ Under the **jaVision** folder provided, there will be a <u>Settings</u> script. 
     </Tip>
     ```python
     ["VisionWebhookURL"] = "",
-    ["WebhookColors"] = { -- Must be a hex value, with '0x' positioned before
-    	["Green"] = tonumber(0x2c8c26),
-    	["Red"] = tonumber(0xba2b20),
-    	["Orange"] = tonumber(0xff9220),
-    	["Grey"] = tonumber(0x595959)
-    },
     ```
-
-    For your webhook colours, the ones provided are default, and you **<u>do not need to change these</u>**. Feel free to use this [colour picker](https://g.co/kgs/d9iGsLL) if you wish to change these colours.
-
-    <Check>
-      When you find a colour you want to use, copy the **HEX** code provided. For example, I will use `#0d0d0d` . In the configuration above, you would place any digits <u>after</u> the 0x, so instead of `tonumber(0x2c8c26),`  it now looks like `tonumber(#0x0d0d0d),`
-    </Check>
   </Accordion>
   <Accordion title="In-game commands" icon="message">
     In-game commands are a recently added feature, allowing you to quickly perform actions without directly interacting with the Vision MIS dashboard.
 
-    ```python
+    ```javascript
     ["Commands"] = {
     	-- Chat-based Vision control commands
     	Enabled = true, -- Enable/disable commands
     	Prefix = "%", -- Command prefix
     	
     	["CommandNames"] = {
-    		Isolate = "isolate", -- e.g %isolate USER REASON or %isolate USER
-    		Positive = "merit", -- e.g %merit USER AMOUNT or %merit USER
-    		Negative = "demerit", -- e.g %demerit USER AMOUNT or %demerit USER
-    		Relocate = "relocate", -- e.g %relocate USER REASON or %relocate USER
-    		NonUniform = "nonuniform", -- e.g %nonuniform USER
-    		Timeout = "timeout", -- e.g %timeout USER
+    		Isolate = "isolate", 
+    		Positive = "merit", 
+    		Negative = "demerit", 
+    		Relocate = "relocate", 
+    		NonUniform = "nonuniform", 
+    		Timeout = "timeout", 
     	}
     },
     ```
@@ -117,7 +105,7 @@ Under the **jaVision** folder provided, there will be a <u>Settings</u> script. 
   <Accordion title="On call alerts" icon="diamond-exclamation">
     On call alerts allow specific users with specific roles to receive alerts when a request is made from a member of staff. The configuration for this is very simple
 
-    ```python
+    ```javascript
     ["OnCallsEnabled"] = true,
     ["RankIDs"] = {1, 2, 3}, -- Choose every rank ID, separated by a comma which are able to manage on call alerts
     ```
@@ -129,7 +117,7 @@ Under the **jaVision** folder provided, there will be a <u>Settings</u> script. 
   <Accordion title="Nametags" icon="tags">
     A series of <u>attributes</u> for nametags can be toggled to adjust to your needs
 
-    ```python
+    ```javascript
     ["NametagsEnabled"] = true, -- Toggle nametags being visible
     ["Staff Icon"] = true, -- Toggles staff icon above staff nametag
     ["Admin Icon"] = true, -- Toggles admin icon above admin nametag
@@ -142,20 +130,14 @@ Under the **jaVision** folder provided, there will be a <u>Settings</u> script. 
 
     <Tabs>
       <Tab title="Non Uniform">
-        ```python
+        ```javascript
         ["NonUniformPass"] = { 
         	Enabled = false, 
         	GamepassID = 0, 
         },
         ```
-      </Tab>
-      <Tab title="Timeout">
-        ```python
-        ["TimeoutPass"] = { 
-        	Enabled = false, 
-        	GamepassID = 0, 
-        },
-        ```
+
+        - **To disable the above**, just change `true` to `false`
       </Tab>
       <Tab title="Lanyards">
         ```python
@@ -189,6 +171,16 @@ Under the **jaVision** folder provided, there will be a <u>Settings</u> script. 
         <Steps>
           <Step title="Copy the example provided">
             To create a new group lanyard, copy the following
+
+            ```javascript
+            ["Group Name"] = {
+            	RoleIds = {1, 255},
+            	Enabled = true,
+            	CardColourTheme = Color3.fromRGB(34, 67, 35),
+            	LanyardTitleColour = Color3.fromRGB(255, 255, 255),
+            	TextureType = "Student"
+            },
+            ```
 
             ```python
             ["Group Name"] = {
@@ -225,13 +217,67 @@ Under the **jaVision** folder provided, there will be a <u>Settings</u> script. 
             You have successfully added your own custom lanyard. Ensure to set `Enabled = true` for it to take effect
 
             - `TextureType` is a configurable setting so the lanyard shows various different textures depending on the group type for example.
-            - Set the TextureType to one of the following: \*\*Senior Leader, Student, Staff or Custom. \*\*For example `TextureType = "Senior Leader"`, or `TextureType = "Custom"`
+            - Set the TextureType to one of the following: **Senior Leader, Student, Staff or Custom.** For example `TextureType = "Senior Leader"`, or `TextureType = "Custom"`
             - You must set your group name correctly. Replace `["Group Name"]` with the name of the **year group** that you want to issue this lanyard to. You can find <u>group settings</u> later on in the configuration.
             - For example, if my **Group Name** was **Year 7**, I would set it to `["Year 7"]`
           </Step>
         </Steps>
       </Tab>
+      <Tab title="Timeout">
+        ```javascript
+        ["TimeoutPass"] = { 
+        	Enabled = true, 
+        	GamepassID = 0, 
+        },
+        ```
+
+        - **To disable the above**, just change `true` to `false`
+      </Tab>
     </Tabs>
+  </Accordion>
+  <Accordion title="Isolation" icon="road-barrier">
+    ```javascript
+    ["Isolation"] = {
+    	Enabled = true,
+    	["IsolationTeam"] = nil,
+    },
+    ```
+
+    1. To **enable or disable isolation**, change `true` to `false` or the other way round
+    2. To make **students be sent to a designated isolation** team, you can replace `nil `with the following `game:GetService("Teams")["TEAM NAME"]` .
+    3. Replace `["TEAM NAME"]` with the **name of your team** you wish to place students into. <u>For example</u> my isolation team would be `game:GetService("Teams")["Isolation"]`
+  </Accordion>
+  <Accordion title="Relocation" icon="restroom-simple">
+    ```javascript
+    ["Relocation"] = { 
+    	Enabled = true,
+    	TeleportToFolder = "Relocation", 
+    	["RelocationTeam"] = nil, 
+    },
+    ```
+
+    1. To **enable or disable relocation**, change `true` to `false` or vice versa
+    2. The `TeleportToFolder` is the **name** of the folder **which contains the parts where students will be teleported to**. By default this is "_Relocation_", however you can copy paste the Relocation folder under the jaVision folder in Workspace and rename it to whatever you want.
+    3. An example of the above:![image.png](/image.png)
+    4. As mentioned in the **Isolation** tab, you can set a designated team for students to be placed into when they are relocated.
+    5. For example `["RelocationTeam"] = game:GetService("Teams")["Relocation"],`
+  </Accordion>
+  <Accordion title="Interface configuration" icon="screencast">
+    ```javascript
+    ["UI Theme"] = "Light",
+    ["Boot Screen"] = true, -
+    ["Session Details Screen Position"] = 1, 
+    ["ColourTheme"] = Color3.fromRGB(255, 65, 32),
+    ["Timezone"] = "BST",
+    ```
+
+    | Name                              | Options                                                   |
+    | --------------------------------- | --------------------------------------------------------- |
+    | `UI Theme`                        | "Light" or "Dark"                                         |
+    | `Boot Screen`                     | `true` or `false`                                         |
+    | `Session Details Screen Position` | 1 (Top), 2 (Bottom Left) , 3 (Bottom) or 4 (Bottom Right) |
+    | `ColourTheme`                     | Click the values in the `fromRGB()` to select a colour    |
+    | `Timezone`                        | `BST, GMT, EET, CET, ET, CT, AEST, AEDT`                  |
   </Accordion>
 </AccordionGroup>
 
