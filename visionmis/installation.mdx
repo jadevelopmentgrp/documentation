@@ -148,7 +148,15 @@ Under the **jaVision** folder provided, there will be a <u>Settings</u> script. 
         },
         ```
 
-        When lanyards are set to `Enabled = true`, staff will receive lanyards automatically. Please set this to false if you wish for staff \*\*not \*\*to have built in Vision lanyards.
+        ```javascript
+        ["Lanyards"] = {
+        	Enabled = true,
+        	ColorTheme = Color3.fromRGB(255, 65, 32),
+        	LogoID = 0 
+        },
+        ```
+
+        When lanyards are set to `Enabled = true`, staff will receive lanyards automatically. Please set this to `false` if you wish or staff **not** to have built in Vision lanyards.
       </Tab>
       <Tab title="Custom Lanyards">
         ```python
