@@ -419,21 +419,199 @@ Please **ensure you have** each of the following pieces of information before co
 | Log Channel Id  | The id of a log channel within your Discord server to send all bot logs to. |
 
 <Info>
-  You can retrieve the information through each of the tabs below
+  You can retrieve the information through each of the tabs below. **We'd recommend keeping all of this stored somewhere as you get each piece of information.**
 </Info>
 
 <Tabs>
   <Tab title="ExperienceId">
-    <Steps>
-      <Step title="New Step">
-        
-      </Step>
-    </Steps>
+    1. To get started, head to the [Creator Dashboard](https://create.roblox.com), if you are not already logged in make sure to do so.
+    2. Once you are on the home page, you must click **View As** in the top left of the side-bar and switch to your **Roblox Community** **which owns your game with the Vision System** in
+    3. ![Image Pn](/images/image.png)
+
+       Once you have switched to your group, select the **Creations** tab and find your experience in the list. Once you find the experience with your Vision System in, click the 3 dots that appear **when you hover** over the game. Once this is done, click **Copy Universe ID**.
+
+       ![Image(1) Pn](/images/image\(1\).png)
   </Tab>
   <Tab title="OpenCloud Key">
-    w
+    <Check>
+      When you enter your **OpenCloud Key** into our system it automatically encrypts to ensure that, in the event of a data breach, your key remains secure and intact.
+    </Check>
+    1. To get started, head to the [Creator Dashboard](https://create.roblox.com/dashboard/credentials?activeTab=ApiKeysTab), if you are not already logged in make sure to do so.
+    2. Once you have been brought to the API Key page, press **Create API Key.**
+
+       ![Image(2) Pn](/images/image\(2\).png)
+
+    From there, you will be **presented a screen to fill in some general information** regarding the new API Key. You can fill in the fields with guidance below.
+
+    | **Field**   | **Description**                                                                     |
+    | :---------- | :---------------------------------------------------------------------------------- |
+    | Name        | You may set any name you want, we recommend `jaVision-Bot`                          |
+    | Description | A description to describe the key, you may leave this field empty if you would like |
+
+    ## Adding API Systems
+
+    ### <u>MessagingService</u>
+
+    Next, scroll down until you find the **Access Permissions **section. Press the **Select API System** and scroll down until you find `messaging-service` , click on it and press **Add API System**.
+
+    ![Image(3) Pn](/images/image\(3\).png)
+
+    After that, ensure to add your experience. You can do that by clicking **Select an Experience **and then clicking your experience from the given list and pressing **Add Experience.**
+
+    <Warning>
+      The chosen experience **must **correspond with the experience id retrieved in the previous step. Your Vision system must also be **fully setup **and **working **in the experience you select.
+    </Warning>
+    ![Image(4) Pn](/images/image\(4\).png)
+
+    Select the API System operation from the **Select Operations to Add** dropdown and click `publish`.
+
+    ### <u>Universe Datastores</u>
+
+    Head back up to the **Select API System** dropdown, click it and scroll down until you find `universe-datastores` , click on it and press **Add API System**.
+
+    ![Image(6) Pn](/images/image\(6\).png)
+
+    By using the same steps before, add your experience by clicking **Select an Experience **and then clicking your experience from the given list and pressing **Add Experience.**
+
+    ![Image(7) Pn](/images/image\(7\).png)
+
+    Press the **Select Operations to Add** dropdown and select the following:
+
+    ```
+    universe-datastores.objects:create
+    universe-datastores.objects:delete
+    universe-datastores.objects:list
+    universe-datastores.objects:read
+    universe-datastores.objects:update
+    ```
+
+    ![Image(8) Pn](/images/image\(8\).png)
+
+    <Warning>
+      If you **do not** select all the operations above, or select different ones your Vision Bot**will not**  work as intended and may error.
+    </Warning>
+    ### <u>Security</u>
+
+    Scroll down until you reach the **Security **section once the aforementioned steps are completed **fully.** Inside of the **Enter an IP Address or CIDR** enter the IP Address `0.0.0.0/0`  Then press **Add IP Address**
+
+    _This IP Address allows our servers to communicate with Roblox systems through your API Key._
+
+    ![Image(9) Pn](/images/image\(9\).png)
+
+    Then make sure to set the **Expiration** to **No Expiration **to ensure that the key never expires. \
+    _You may set the key with an expiration date but you will have to update the key before it expires, it is recommended to set it to no expiration_
+
+    Once **all **the steps above have been completed fully, using the screenshots provided, press the blue **Create API Key **button and copy the key given to you.
+
+    <Info>
+      The key given to you is your **Roblox OpenCloud Key, **keep it safe and never send it to anyone.
+
+      Vision Developers and jaDevelopment Staff Members will **_never _**ask you for your OpenCloud Key.
+    </Info>
   </Tab>
   <Tab title="Community Id">
-    w
+    **To find your community id**, head to the [Roblox Communities](https://www.roblox.com/communities) page. Find your group on the left sidebar and click on it. **In the URL bar you will find some numbers**, this is your community/group id.
+
+    ![Image(10) Pn](/images/image\(10\).png)
   </Tab>
 </Tabs>
+
+## Good job\! Moving on
+
+Once you have retrieved the necessary information for system setup, 
+
+**Run the **`/setup`**command to initiate the setup process** . You will be prompted an embed with a button on it, click the button and a modal form will popup asking you to input the information you retrieved before. 
+
+Input the information into all the fields and then click **Submit.** If the setup was successful you will be notified, else you will receive an error message stating what went wrong.
+
+<Info>
+  If you do not want any system logs enter a **0 (zero) **when asked for a Channel Id.
+</Info>
+
+<Warning>
+  If you update your in-game datastore names within your Vision settings, the cached datastore names in our database will become out of sync with the live stores. View the **System Refresh **section to refresh the cached names.
+</Warning>
+
+### System Permissions
+
+Ensure that you setup the correct permissions before attempting to run any commands. By default, some commands are locked to "Staff" ranks and some to "Admin" ranks, much like the in-game Vision system. Currently, you are **unable **to specify which commands you want to lock to administrator or staff members. 
+
+**\
+Our current command permissions are below:**
+
+| **Staff & Admin Commands**                           | **Admin Commands**                              |
+| ---------------------------------------------------- | ----------------------------------------------- |
+| analytics                                            | attendance                                      |
+| year-analytics                                       | timeout-pass **grant**  timeout-pass **remove** |
+| timetable                                            | uniform-pass **grant**  uniform-pass **remove** |
+| search                                               |                                                 |
+| roleplay-name                                        |                                                 |
+| timeout-pass **has**                                 |                                                 |
+| uniform-pass **has**                                 |                                                 |
+| merit  behaviour-point  incident  isolate  detention |                                                 |
+
+<Info>
+  Guild Members who have any administrative roles can access both admin and staff locked commands. Guild Members who have any staff roles can only access staff locked commands.
+</Info>
+
+### Adding Roles
+
+To add permission roles to the system, use the `/permissions add`  command followed by a **Discord Role Id** and the permission type. Any member with the role that has been added will receive the permission type selected.
+
+### ![Image(11) Pn](/images/image\(11\).png)
+
+\
+Removing Roles  
+
+Removing a permitted role in the system is as easy as running the `/permissions remove`  command followed by the **Discord Role Id** and the existing permission type. Anybody with the role and no other permitted roles will now be unable to run any permission locked commands.
+
+### ![Image(12) Pn](/images/image\(12\).png)
+
+Viewing Permitted Roles
+
+If you need to check which roles have been configured to have certain permissions, use the `/permissions list`  command. When you have ran the command you will be able to view all Admin roles and all Staff roles. If a role was to have been deleted, you will be able to view the id to remove the role.
+
+### ![Image(13) Pn](/images/image\(13\).png)
+
+System Reset
+
+If you need to quickly reset every setting, use the `/reset` command to remove **all **settings relating to the Vision bot inside of your guild. You will be asked before you continue to reset the system.
+
+<Check>
+  The reset command **does not** reset any in-game Vision data such as student merits and behaviour points
+</Check>
+
+### System Refresh
+
+If you update your in-game datastores within your settings, the cached datastore names will become out of sync and will no longer display up-to-date information from when you run the command. 
+
+To fix this, run the `/refresh-databases`  command. Upon running it, you will be prompted before refreshing the database names and once the command has been ran, it will become unavailable for **2 minutes.**   
+
+_We cache datastore names so we do not have to request the current datastore names every time a command has been ran._
+
+### System Updates
+
+If you need to update any settings which you provided when you setup the system, you can use the `/update`  command to edit any of the initial settings. 
+
+You will be asked which setting you want to update, the settings include:
+
+| **Information** | **Description**                                                             |
+| :-------------- | :-------------------------------------------------------------------------- |
+| Experience Id   | The experience id of your game which contains the Vision System.            |
+| OpenCloud Key   | An API key to interact with the in-game Vision System from Discord.         |
+| Community Id    | The id of your Roblox group/community.                                      |
+| Log Channel Id  | The id of a log channel within your Discord server to send all bot logs to. |
+
+### Command Cooldowns
+
+By default, we enforce cooldowns on some of our commands to prevent spam and abuse, we may also add cooldowns to any commands that may use a lot of resources to run. The current commands on our cooldowns are found below:
+
+| **Command**       | **Duration  **<Icon icon="clock" /> |
+| ----------------- | :---------------------------------- |
+| behaviour-point   | 30 seconds                          |
+| merit             | 30 seconds                          |
+| detention         | 30 seconds                          |
+| incident          | 30 seconds                          |
+| isolate           | 30 seconds                          |
+| timetable         | 30 seconds                          |
+| refresh-databases | 2 minutes                           |
