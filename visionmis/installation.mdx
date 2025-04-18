@@ -4,7 +4,7 @@ description: "Comprehensive instructions on how to set up Vision MIS with your g
 ---
 
 <Tip>
-  If you want to set up the discord bot integration, skip to <u>discord bot setup</u>
+  If you want to set up the discord bot integration, skip to [discord bot setup](/visionmis/installation#discord-bot-setup)
 </Tip>
 
 # Studio Setup
@@ -278,7 +278,7 @@ Under the **jaVision** folder provided, there will be a <u>Settings</u> script. 
   <Accordion title="Interface configuration" icon="screencast">
     ```javascript
     ["UI Theme"] = "Light",
-    ["Boot Screen"] = true, -
+    ["Boot Screen"] = true, 
     ["Session Details Screen Position"] = 1, 
     ["ColourTheme"] = Color3.fromRGB(255, 65, 32),
     ["Timezone"] = "BST",
@@ -337,7 +337,7 @@ Under the **jaVision** folder provided, there will be a <u>Settings</u> script. 
     </Steps>
   </Accordion>
   <Accordion title="Lessons/periods" icon="timer">
-    \*\*Lastly \*\*- one of the most relevant sections of the configuration process, is organising your periods/lessons for the regular day
+    **Lastly** - one of the most relevant sections of the configuration process, is organising your periods/lessons for the regular day
 
     ```javascript
     ["ClosureTime"] = "20:55",
@@ -424,13 +424,15 @@ Please **ensure you have** each of the following pieces of information before co
 
 <Tabs>
   <Tab title="ExperienceId">
-    1. To get started, head to the [Creator Dashboard](https://create.roblox.com), if you are not already logged in make sure to do so.
-    2. Once you are on the home page, you must click **View As** in the top left of the side-bar and switch to your **Roblox Community** **which owns your game with the Vision System** in
-    3. ![Image Pn](/images/image.png)
+    To get started, head to the [Creator Dashboard](https://create.roblox.com), if you are not already logged in make sure to do so.
 
-       Once you have switched to your group, select the **Creations** tab and find your experience in the list. Once you find the experience with your Vision System in, click the 3 dots that appear **when you hover** over the game. Once this is done, click **Copy Universe ID**.
+    Once you are on the home page, you must click **View As** in the top left of the side-bar and switch to your **Roblox Community** **which owns your game with the Vision System** in
 
-       ![Image(1) Pn](/images/image\(1\).png)
+    ![Image Pn](/images/image.png)
+
+    Once you have switched to your group, select the **Creations** tab and find your experience in the list. Once you find the experience with your Vision System in, click the 3 dots that appear **when you hover** over the game. Once this is done, click **Copy Universe ID**.
+
+    1. ![Image(1) Pn](/images/image\(1\).png)
   </Tab>
   <Tab title="OpenCloud Key">
     <Check>
@@ -452,7 +454,7 @@ Please **ensure you have** each of the following pieces of information before co
 
     ### <u>MessagingService</u>
 
-    Next, scroll down until you find the \*\*Access Permissions \*\*section. Press the **Select API System** and scroll down until you find `messaging-service` , click on it and press **Add API System**.
+    Next, scroll down until you find the **Access Permissions** section. Press the **Select API System** and scroll down until you find `messaging-service` , click on it and press **Add API System**.
 
     ![Image(3) Pn](/images/image\(3\).png)
 
@@ -492,13 +494,13 @@ Please **ensure you have** each of the following pieces of information before co
     </Warning>
     ### <u>Security</u>
 
-    Scroll down until you reach the \*\*Security \*\*section once the aforementioned steps are completed **fully.** Inside of the **Enter an IP Address or CIDR** enter the IP Address `0.0.0.0/0`  Then press **Add IP Address**
+    Scroll down until you reach the **Security** section once the aforementioned steps are completed **fully.** Inside of the **Enter an IP Address or CIDR** enter the IP Address `0.0.0.0/0`  Then press **Add IP Address**
 
     _This IP Address allows our servers to communicate with Roblox systems through your API Key._
 
     ![Image(9) Pn](/images/image\(9\).png)
 
-    Then make sure to set the **Expiration** to \*\*No Expiration \*\*to ensure that the key never expires. \
+    Then make sure to set the **Expiration** to **No Expiration** to ensure that the key never expires. \
     _You may set the key with an expiration date but you will have to update the key before it expires, it is recommended to set it to no expiration_
 
     Once **all** the steps above have been completed fully, using the screenshots provided, press the blue **Create API Key** button and copy the key given to you.
@@ -506,7 +508,7 @@ Please **ensure you have** each of the following pieces of information before co
     <Info>
       The key given to you is your **Roblox OpenCloud Key**, keep it safe and never send it to anyone.
 
-      Vision Developers and jaDevelopment Staff Members will \*\*<u>never</u> \*\*ask you for your OpenCloud Key.
+      Vision Developers and jaDevelopment Staff Members will **<u>never</u>** ask you for your OpenCloud Key.
     </Info>
   </Tab>
   <Tab title="Community Id">
@@ -529,7 +531,7 @@ Input the information into all the fields and then click **Submit.** If the setu
 </Info>
 
 <Warning>
-  If you update your in-game datastore names within your Vision settings, the cached datastore names in our database will become out of sync with the live stores. View the \*\*System Refresh \*\*section to refresh the cached names.
+  If you update your in-game datastore names within your Vision settings, the cached datastore names in our database will become out of sync with the live stores. View the **System Refresh** section to refresh the cached names.
 </Warning>
 
 ### System Permissions
@@ -563,19 +565,19 @@ To add permission roles to the system, use the `/permissions add`  command follo
 
 ![Image(11) Pn](/images/image\(11\).png)
 
-Removing Roles
+### Removing Roles
 
 Removing a permitted role in the system is as easy as running the `/permissions remove`  command followed by the **Discord Role Id** and the existing permission type. Anybody with the role and no other permitted roles will now be unable to run any permission locked commands.
 
 ![Image(12) Pn](/images/image\(12\).png)
 
-Viewing Permitted Roles
+### Viewing Permitted Roles
 
 If you need to check which roles have been configured to have certain permissions, use the `/permissions list`  command. When you have ran the command you will be able to view all Admin roles and all Staff roles. If a role was to have been deleted, you will be able to view the id to remove the role.
 
 ![Image(13) Pn](/images/image\(13\).png)
 
-System Reset
+### System Reset
 
 If you need to quickly reset every setting, use the `/reset` command to remove **all** settings relating to the Vision bot inside of your guild. You will be asked before you continue to reset the system.
 
@@ -622,12 +624,12 @@ By default, we enforce cooldowns on some of our commands to prevent spam and abu
 
 This page outlines the information needed for using the behavioural commands. It is important that you read the information provided on this page carefully before contacting support that your system doesn't work.
 
-When \*\*any \*\*behavioural command is ran (includes merit, isolation, detention etc) the command will take affect in-game \*\*instantly \*\*as long as the server is currently running and the student is in-game when the command has been ran.
+When **any** behavioural command is ran (includes merit, isolation, detention etc) the command will take affect in-game **instantly** as long as the server is currently running and the student is in-game when the command has been ran.
 
 All behavioural commands will log to the specified log channel, if it has been provided, in the same format as the normal in-game Vision format.
 
 <Note>
-  Please note, if the Roblox server is not running or the student is not in-game the year group and lifetime analytics will \*\*not \*\*be updated.
+  Please note, if the Roblox server is not running or the student is not in-game the year group and lifetime analytics will **not be updated.**
 </Note>
 
 ### Isolations
@@ -645,7 +647,7 @@ The `/isolation` on command will automatically team, respawn and teleport the st
 | Comments         | Any extra information relating to the situation.                    |
 
 <Warning>
-  When isolating a student, the destination you provide \*\*must \*\*match an in-game location. If the location does not match, the student will not be brought to the Isolation room correctly. You can either retrieve it via the named spawns in the workspace system or view the current set ones from the in-game UI.
+  When isolating a student, the destination you provide **must match an in-game location**. If the location does not match, the student will not be brought to the Isolation room correctly. You can either retrieve it via the named spawns in the workspace system or view the current set ones from the in-game UI.
 
   ![Image(14) Pn](/images/image\(14\).png)
 
@@ -664,7 +666,7 @@ The `/incident`  command will add to the incident dashboard as normal with the a
 | Reason           | A reason for the incident, pick from the listed few.                                |
 | Severity         | The severity of the situation, level 3 will appear **<u>red</u>** in the dashboard. |
 | Summary          | A full summary of the incident that occurred.                                       |
-| Others           | Any other students involved — Roblox usernames \*\*separated \*\*by commas          |
+| Others           | Any other students involved — Roblox usernames **separated by commas**              |
 
 ### Detentions
 
@@ -692,16 +694,16 @@ The `/merit`and `/behaviour-point`commands act very similarly, they both take th
 
 ## Student Management
 
-When \*\*any \*\*student management command is ran the command will take affect in-game \*\*instantly, \*\*as long as the server is currently running and the student is in-game when the command has been ran.
+**When any student management command is ran the command will take affect in-game instantly**, as long as the server is currently running and the student is in-game when the command has been ran.
 
 All student management commands will log to the specified log channel, if it has been provided, in the same format as the normal in-game Vision format.
 
 <Note>
-  Please note, if the Roblox server is not running or the student is not in-game the year group and lifetime analytics will \*\*not \*\*be updated.
+  Please note, if the Roblox server is not running or the student is not in-game the year group and lifetime analytics will not be updated.
 </Note>
 
 <Warning>
-  If your game has timeout or uniform passes enabled via game passes —  if a student joins the game and owns either pass after having their pass removed manually they will automatically \*\*receive the pass again. \*\*This is because we can't remove the functionality of a paid gamepass.
+  If your game has timeout or uniform passes enabled via game passes —  if a student joins the game and owns either pass after having their pass removed manually they will **automatically receive the pass again**. This is because we can't remove the functionality of a paid gamepass.
 
   If you **do not** want this to happen, disable gamepass purchasing to keep it admin applied only.
 </Warning>
@@ -716,11 +718,11 @@ The `/roleplay-name`  command allows students to change their own roleplay name,
 
 ### Timeout Pass
 
-The `/timeout-pass`  subcommands let staff members check if a student has a timeout pass and allows admins to grant or remove passes. This change will take affect \*\*instantly \*\*giving the student the timeout pass icon and removing it when it has been revoked.
+The `/timeout-pass`  subcommands let staff members check if a student has a timeout pass and allows admins to grant or remove passes. **This change will take affect instantly** giving the student the timeout pass icon and removing it when it has been revoked.
 
 ### Uniform Pass
 
-The `/uniform-pass`  subcommands let staff members check if a student has a uniform pass and allows admins to grant or remove passes. This change will take affect \*\*instantly \*\*giving the student the uniform pass icon and removing it when it has been revoked.
+The `/uniform-pass`  subcommands let staff members check if a student has a uniform pass and allows admins to grant or remove passes. **This change will take affect instantly** giving the student the uniform pass icon and removing it when it has been revoked.
 
 ### User Searching
 
@@ -735,16 +737,16 @@ Using the `/search`  command allows staff members to search for a student to vie
 
   When you provide a student's username, it will display the information found in the table below.
 
-  | Information        | Description                                                                                                                                |
-  | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------ |
-  | Roblox Information | The student's user id, username and community rank,                                                                                        |
-  | Roleplay Name      | The name the student has set for themselves.                                                                                               |
-  | Account State      | Whether the student is able to access the in-game Vision system.  [**_Toggled via the Users & Security page._**](/fp/usersandsecuritypage) |
-  | Gender             | The gender the student picked when creating their Vision account.                                                                          |
-  | Student Passes     | The passes the student has (timeout, uniform).                                                                                             |
-  | Merits             | The number of merits the student has.                                                                                                      |
-  | Demerits           | The number of behaviour points the student has.                                                                                            |
-  | Isolations         | The number of isolations the student has had.                                                                                              |
+  | Information        | Description                                                                                                                                          |
+  | ------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
+  | Roblox Information | The student's user id, username and community rank,                                                                                                  |
+  | Roleplay Name      | The name the student has set for themselves.                                                                                                         |
+  | Account State      | Whether the student is able to access the in-game Vision system.  [**_Toggled via the Users & Security page._**](/visionmis/fp/usersandsecuritypage) |
+  | Gender             | The gender the student picked when creating their Vision account.                                                                                    |
+  | Student Passes     | The passes the student has (timeout, uniform).                                                                                                       |
+  | Merits             | The number of merits the student has.                                                                                                                |
+  | Demerits           | The number of behaviour points the student has.                                                                                                      |
+  | Isolations         | The number of isolations the student has had.                                                                                                        |
 </Accordion>
 
 <Accordion title="Staff Information">
@@ -752,12 +754,12 @@ Using the `/search`  command allows staff members to search for a student to vie
 
   When you provide a staff member's  username, it will display the information found in the table below.
 
-  | **Information**    | **Description**                                                                                                                                 |
-  | ------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------- |
-  | Roblox Information | The staff member's user id, username and community rank,                                                                                        |
-  | Roleplay Name      | The name the student has set for themselves.                                                                                                    |
-  | Account State      | Whether the staff member is able to access the in-game Vision system.  [**_Toggled via the Users & Security page._**](/fp/usersandsecuritypage) |
-  | Gender             | The gender the student picked when creating their Vision account.                                                                               |
+  | **Information**    | **Description**                                                                                                                                           |
+  | ------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
+  | Roblox Information | The staff member's user id, username and community rank,                                                                                                  |
+  | Roleplay Name      | The name the student has set for themselves.                                                                                                              |
+  | Account State      | Whether the staff member is able to access the in-game Vision system.  [**_Toggled via the Users & Security page._**](/visionmis/fp/usersandsecuritypage) |
+  | Gender             | The gender the student picked when creating their Vision account.                                                                                         |
 </Accordion>
 
 ### Personal Profiles
