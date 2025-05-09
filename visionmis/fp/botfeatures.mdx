@@ -2,3 +2,246 @@
 title: "Bot Features"
 description: "Description of your new file."
 ---
+
+### Adding Roles
+
+To add permission roles to the system, use the `/permissions add`  command followed by a **Discord Role Id** and the permission type. Any member with the role that has been added will receive the permission type selected.
+
+![Image(11) Pn](/images/image\(11\).png)
+
+### Removing Roles
+
+Removing a permitted role in the system is as easy as running the `/permissions remove`  command followed by the **Discord Role Id** and the existing permission type. Anybody with the role and no other permitted roles will now be unable to run any permission locked commands.
+
+![Image(12) Pn](/images/image\(12\).png)
+
+### Viewing Permitted Roles
+
+If you need to check which roles have been configured to have certain permissions, use the `/permissions list`  command. When you have ran the command you will be able to view all Admin roles and all Staff roles. If a role was to have been deleted, you will be able to view the id to remove the role.
+
+![Image(13) Pn](/images/image\(13\).png)
+
+### System Reset
+
+If you need to quickly reset every setting, use the `/reset` command to remove **all** settings relating to the Vision bot inside of your guild. You will be asked before you continue to reset the system.
+
+<Check>
+  The reset command **does not** reset any in-game Vision data such as student merits and behaviour points
+</Check>
+
+### System Refresh
+
+If you update your in-game datastores within your settings, the cached datastore names will become out of sync and will no longer display up-to-date information from when you run the command.
+
+To fix this, run the `/refresh-databases`  command. Upon running it, you will be prompted before refreshing the database names and once the command has been ran, it will become unavailable for **2 minutes.**
+
+_We cache datastore names so we do not have to request the current datastore names every time a command has been ran._
+
+### System Updates
+
+If you need to update any settings which you provided when you setup the system, you can use the `/update`  command to edit any of the initial settings.
+
+You will be asked which setting you want to update, the settings include:
+
+| **Information** | **Description**                                                             |
+| :-------------- | :-------------------------------------------------------------------------- |
+| Experience Id   | The experience id of your game which contains the Vision System.            |
+| OpenCloud Key   | An API key to interact with the in-game Vision System from Discord.         |
+| Community Id    | The id of your Roblox group/community.                                      |
+| Log Channel Id  | The id of a log channel within your Discord server to send all bot logs to. |
+
+### Command Cooldowns
+
+By default, we enforce cooldowns on some of our commands to prevent spam and abuse, we may also add cooldowns to any commands that may use a lot of resources to run. The current commands on our cooldowns are found below:
+
+| **Command**       | **Duration** <Icon icon="clock" /> |
+| ----------------- | :--------------------------------- |
+| behaviour-point   | 30 seconds                         |
+| merit             | 30 seconds                         |
+| detention         | 30 seconds                         |
+| incident          | 30 seconds                         |
+| isolate           | 30 seconds                         |
+| timetable         | 30 seconds                         |
+| refresh-databases | 2 minutes                          |
+
+## Behavioural Commands
+
+This page outlines the information needed for using the behavioural commands. It is important that you read the information provided on this page carefully before contacting support that your system doesn't work.
+
+When **any** behavioural command is ran (includes merit, isolation, detention etc) the command will take affect in-game **instantly** as long as the server is currently running and the student is in-game when the command has been ran.
+
+All behavioural commands will log to the specified log channel, if it has been provided, in the same format as the normal in-game Vision format.
+
+<Note>
+  Please note, if the Roblox server is not running or the student is not in-game the year group and lifetime analytics will **not be updated.**
+</Note>
+
+### Isolations
+
+The `/isolation` on command will automatically team, respawn and teleport the student if they are in-game. A notice will also appear on the student's screen alerting them of the isolation, and the behavioural dashboard will update to reflect the newly added isolation.
+
+**The command offers 5 options for usability, they are listed below:**
+
+| **Option**       | **Description**                                                     |
+| ---------------- | ------------------------------------------------------------------- |
+| Student Username | The username of the student beign isolated.                         |
+| Reason           | A reason for the isolation, pick from the listed few.               |
+| Summary          | A summary of the incident.                                          |
+| Destination      | The location to send the student — **view more information below.** |
+| Comments         | Any extra information relating to the situation.                    |
+
+<Warning>
+  When isolating a student, the destination you provide **must match an in-game location**. If the location does not match, the student will not be brought to the Isolation room correctly. You can either retrieve it via the named spawns in the workspace system or view the current set ones from the in-game UI.
+
+  ![Image(14) Pn](/images/image\(14\).png)
+
+  ![Image Avi](/images/image.avif)
+</Warning>
+
+### Incidents
+
+The `/incident`  command will add to the incident dashboard as normal with the ability to resolve them and view other students involved.
+
+**The command asks for 3 required fields and 2 non-required.**
+
+| **Option**       | **Description**                                                                     |
+| ---------------- | ----------------------------------------------------------------------------------- |
+| Student Username | The username of the student mainly involved in the incident.                        |
+| Reason           | A reason for the incident, pick from the listed few.                                |
+| Severity         | The severity of the situation, level 3 will appear **<u>red</u>** in the dashboard. |
+| Summary          | A full summary of the incident that occurred.                                       |
+| Others           | Any other students involved — Roblox usernames **separated by commas**              |
+
+### Detentions
+
+When the `/detention`command is ran, the specified student will be alerted in-game when they receive a detention, as well as the behavioural dashboard updating accordingly. The current command options are:
+
+| **Option**       | **Description**                                                                                                            |
+| :--------------- | :------------------------------------------------------------------------------------------------------------------------- |
+| Student Username | The username of the student receiving the detention.                                                                       |
+| Reason           | A reason for the detention, pick from the listed few.                                                                      |
+| Type             | The detention type, pick from the listed few.  _Option picked has no command affect, purely visual based._                 |
+| Location         | The location of where the detention will be, e.g. Ma2 or Sc3.  _Option picked has no command affect, purely visual based._ |
+| Comments         | Any other pieces of information the staff member wishes to provide regarding the situation.                                |
+
+### Merits & Behaviour Points
+
+The `/merit`and `/behaviour-point`commands act very similarly, they both take the same command options and act the same way in-game apart from the on-screen UI being different.
+
+| **Option**       | **Description**                                                                            |
+| :--------------- | :----------------------------------------------------------------------------------------- |
+| Student Username | The username of the student receiving the merit/behaviour point.                           |
+| Reason           | A reason for the merit/behaviour point, pick from the listed few.                          |
+| Amount           | The amount of merits/behaviour points to give.                                             |
+| Location         | The location of where the merit/behaviour point was given.                                 |
+| Comments         | Any other pieces of information the staff member wishes to provide regarding the situation |
+
+## Student Management
+
+**When any student management command is ran the command will take affect in-game instantly**, as long as the server is currently running and the student is in-game when the command has been ran.
+
+All student management commands will log to the specified log channel, if it has been provided, in the same format as the normal in-game Vision format.
+
+<Note>
+  Please note, if the Roblox server is not running or the student is not in-game the year group and lifetime analytics will not be updated.
+</Note>
+
+<Warning>
+  If your game has timeout or uniform passes enabled via game passes —  if a student joins the game and owns either pass after having their pass removed manually they will **automatically receive the pass again**. This is because we can't remove the functionality of a paid gamepass.
+
+  If you **do not** want this to happen, disable gamepass purchasing to keep it admin applied only.
+</Warning>
+
+### Roleplay Name
+
+The `/roleplay-name`  command allows students to change their own roleplay name, as well as staff members being able to change student usernames. You must provide the new name along with the student name _if changing someone else's name._
+
+<Check>
+  All names are filtered by our service. However, we cannot guarantee that users won't bypass the system; therefore, we accept no responsibility for any inappropriate names being sent to Roblox servers.
+</Check>
+
+### Timeout Pass
+
+The `/timeout-pass`  subcommands let staff members check if a student has a timeout pass and allows admins to grant or remove passes. **This change will take affect instantly** giving the student the timeout pass icon and removing it when it has been revoked.
+
+### Uniform Pass
+
+The `/uniform-pass`  subcommands let staff members check if a student has a uniform pass and allows admins to grant or remove passes. **This change will take affect instantly** giving the student the uniform pass icon and removing it when it has been revoked.
+
+### User Searching
+
+Using the `/search`  command allows staff members to search for a student to view their information. The command also allows you to view other staff members; however, it displays different details. Each search displays the user's avatar with a random coloured background.
+
+<Warning>
+  Any staff member who has not joined the game since implementing the Vision 1.7 update into your game will be \*\*incorrectly \*\*marked as a student member. This issue is unavoidable and we are aware of it.
+</Warning>
+
+<Accordion title="Student Information">
+  ![Image(15) Pn](/images/image\(15\).png)
+
+  When you provide a student's username, it will display the information found in the table below.
+
+  | Information        | Description                                                                                                                                          |
+  | ------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
+  | Roblox Information | The student's user id, username and community rank,                                                                                                  |
+  | Roleplay Name      | The name the student has set for themselves.                                                                                                         |
+  | Account State      | Whether the student is able to access the in-game Vision system.  [**_Toggled via the Users & Security page._**](/visionmis/fp/usersandsecuritypage) |
+  | Gender             | The gender the student picked when creating their Vision account.                                                                                    |
+  | Student Passes     | The passes the student has (timeout, uniform).                                                                                                       |
+  | Merits             | The number of merits the student has.                                                                                                                |
+  | Demerits           | The number of behaviour points the student has.                                                                                                      |
+  | Isolations         | The number of isolations the student has had.                                                                                                        |
+</Accordion>
+
+<Accordion title="Staff Information">
+  ![Image(16) Pn](/images/image\(16\).png)
+
+  When you provide a staff member's  username, it will display the information found in the table below.
+
+  | **Information**    | **Description**                                                                                                                                           |
+  | ------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
+  | Roblox Information | The staff member's user id, username and community rank,                                                                                                  |
+  | Roleplay Name      | The name the student has set for themselves.                                                                                                              |
+  | Account State      | Whether the staff member is able to access the in-game Vision system.  [**_Toggled via the Users & Security page._**](/visionmis/fp/usersandsecuritypage) |
+  | Gender             | The gender the student picked when creating their Vision account.                                                                                         |
+</Accordion>
+
+### Personal Profiles
+
+The `/search`  command allows user's to retrieve their own personal information. The command works the same as <u>User Searching</u> and provides the same information.
+
+## School Overview
+
+<Warning>
+  Any analytic related commands will only show data from the time of the Vision 1.7 update due to mismatching data properties. **We sincerely apologise regarding this minor inconvenience**
+</Warning>
+
+### Analytics
+
+To view statistics across all year groups, you can use the `/analytics`  command to retrieve information from a specific time period. A specific date can be selected, or you can view <u>lifetime</u> data.
+
+![Image(17) Pn](/images/image\(17\).png)
+
+### Year Analytics
+
+Statistics from a specific year group can easily be viewed using the `/year-analytics`  command followed by the year group you want to view. All data returned is lifetime, not specific dates.
+
+Year groups will automatically be filled in and are cached for 2 minutes to prevent spam of requests to Roblox API's. If you change your year groups in-game, they will eventually update in Discord after the caching period has ended.
+
+<Info>
+  You can manually type out a full year groups name rather than waiting for options to load.
+</Info>
+
+![Image(18) Pn](/images/image\(18\).png)
+
+### Staff Attendance
+
+Easily view staff attendance by using the `/attendance`  command which will list all staff members whom attended on the specific day requested.
+
+![Image(19) Pn](/images/image\(19\).png)
+
+### Timetable
+
+If you set your in-game timetable correctly via settings, running the `/timetable`  command, with a valid day, will output an automatically generated timetable in the format of an image as well as a downloadable PDF file.
+
+![Image(20) Pn](/images/image\(20\).png)
