@@ -25,7 +25,7 @@
           "visionmis/installation",
           {
             "group": "Features & Pages",
-            "pages": ["visionmis/fp/createprofile", "visionmis/fp/loginanduseragreement", "visionmis/fp/homepage", "visionmis/fp/browsestudentspage", "visionmis/fp/studentprofile", "visionmis/fp/yeargrouppage", "visionmis/fp/browseallstaff", "visionmis/fp/eventpage", "visionmis/fp/staffattendance", "visionmis/fp/schooldetailspage", "visionmis/fp/timetablepage", "visionmis/fp/lessonoverviewpage", "visionmis/fp/usersandsecuritypage", "visionmis/fp/behaviourdashboard", "visionmis/fp/oncalls", "visionmis/fp/visionsettings"]
+            "pages": ["visionmis/fp/createprofile", "visionmis/fp/botfeatures", "visionmis/fp/loginanduseragreement", "visionmis/fp/homepage", "visionmis/fp/browsestudentspage", "visionmis/fp/studentprofile", "visionmis/fp/yeargrouppage", "visionmis/fp/browseallstaff", "visionmis/fp/eventpage", "visionmis/fp/staffattendance", "visionmis/fp/schooldetailspage", "visionmis/fp/timetablepage", "visionmis/fp/lessonoverviewpage", "visionmis/fp/usersandsecuritypage", "visionmis/fp/behaviourdashboard", "visionmis/fp/oncalls", "visionmis/fp/visionsettings"]
           }
         ]
           },
