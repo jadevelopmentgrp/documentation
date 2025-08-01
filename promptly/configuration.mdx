@@ -193,8 +193,69 @@ description: "Promptly has endless options for configuring and customising the p
       When set to `false`, the banner will be reset to its original state, which depends on other configuration options
     - **UIPosition**
 
-      When set to 1, it will be right at the top of the screen
+      When set to `1`, it will be right at the top of the screen, as demonstrated below
+
+      ![image.png](/images/image.png)
+
+      When set to `2`, it will be underneath the core Roblox UI, as demonstrated below
+
+      ![Wetewt Pn](/images/wetewt.png)
+    - **NotificationSound**: this is a sound effect that plays when a notification occurs in the system
+
+      <Warning>
+        The sound effect provided **may not play** until the licence owner obtains the sound effect from us (similar to Radiolink installation)
+
+        \
+        You can find the sound effect here: [Promptly Sound Effect](https://create.roblox.com/store/asset/96867813755421/Promptly-SFX)
+      </Warning>
+      You can enter your own ID, or leave it as `0`
+
+      ```lua
+      NotificationSound = "rbxassetid://0",
+      ```
+  </Tab>
+  <Tab title="Automation">
+    ```lua
+    VisionPeriods = false, --<< When set to true, the system will automatically detect when Vision periods take place, and will update the banner
+    VisibleOnEvent = true, --<< When set to true, the banner will be visible when a Vision period or scheduled message happens
+    ```
+
+    **VisionPeriods**\
+    When set to `true`, the system will detect when lessons occur on [Vision MIS](https://jadevelopment.co.uk/products/jadevelopment-vision), and will update the banner in time for the lesson's start time\
+    \
+    **VisibleOnEvent**\
+    When set to `true`, the banner will be visible when a Vision period or scheduled message happens. For context, if the banner is not visible, it will make itself visible when a scheduled event occurs.
   </Tab>
 </Tabs>
 
-aaa
+## Scheduled Messages
+
+By default, scheduled messages are **<u>not</u>** enabled
+
+- You can have **multiple messages** that automatically send to everyone on the banner and will notify them at the time
+- The messages will send at the specified time of the timezone that has been selected prior
+
+```lua
+ScheduledMessages = {
+		Enabled = false, 
+		Messages = {
+			{
+				Title = "Welcome to the game",
+				Time = "12:00",
+				Message = "Message here",
+			},
+		}
+	}
+```
+
+To make a new message, simply copy the message template below:
+
+**{**
+
+**Title = "Welcome to the game",**				
+
+**Time = "12:00",**				
+
+**Message = "Message here",**				
+
+**},**
