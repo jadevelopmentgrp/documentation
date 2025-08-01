@@ -52,22 +52,7 @@ description: "Promptly has endless options for configuring and customising the p
       We are **<u>not</u>** responsible if your game is taken down for not having the filter enabled
     </Warning>
   </Tab>
-  <Tab title="Cooldown">
-    ```lua
-    Cooldown = 3, --<< Cooldown between setting messages again (affects the entire server) 
-    ```
-
-    - You can change the cooldown to any amount of seconds (including `0`)
-    - When a message is sent, the cooldown will be active until that number of seconds runs out, which prevents all other administrators from submitting updates to the banner
-    - You can set the cooldown to `0` if you wish for there to be no delay between updating messages
-
-      ```lua
-      Cooldown = 0, --<< Cooldown between setting messages again (affects the entire server) 
-      ```
-  </Tab>
   <Tab title="Misc">
-    
-
     ```lua
     Cooldown = 3, --<< Cooldown between setting messages again (affects the entire server) 
     ```
@@ -240,54 +225,53 @@ description: "Promptly has endless options for configuring and customising the p
     **VisibleOnEvent**\
     When set to `true`, the banner will be visible when a Vision period or scheduled message happens. For context, if the banner is not visible, it will make itself visible when a scheduled event occurs.
   </Tab>
+  <Tab title="Scheduled Messages">
+    By default, scheduled messages are **<u>not</u>** enabled
+
+    - You can have **multiple messages** that automatically send to everyone on the banner and will notify them at the time
+    - The messages will send at the specified time of the timezone that has been selected prior
+
+    ```lua
+    ScheduledMessages = {
+    	Enabled = false, 
+    	Messages = {
+    		{
+    			Title = "Welcome to the game",
+    			Time = "12:00",
+    			Message = "Message here",
+    		},
+    	}
+    }
+    ```
+
+    **To make a new message, simply copy the message template below:**
+
+    ```lua
+    {
+    	Title = "Hello",
+    	Time = "13:00",
+    	Message = "Message here",
+    },
+    ```
+
+    **Then, simply paste it underneath the previous message:**
+
+    ```lua
+    ScheduledMessages = {
+    	Enabled = false, 
+    	Messages = {
+    		{
+    			Title = "Welcome to the game",
+    			Time = "12:00",
+    			Message = "Message here",
+    		},
+    		{
+    			Title = "Hello",
+    			Time = "13:00",
+    			Message = "Message here",
+    		},
+    	}
+    }
+    ```
+  </Tab>
 </Tabs>
-
-## Scheduled Messages
-
-By default, scheduled messages are **<u>not</u>** enabled
-
-- You can have **multiple messages** that automatically send to everyone on the banner and will notify them at the time
-- The messages will send at the specified time of the timezone that has been selected prior
-
-```lua
-ScheduledMessages = {
-	Enabled = false, 
-	Messages = {
-		{
-			Title = "Welcome to the game",
-			Time = "12:00",
-			Message = "Message here",
-		},
-	}
-}
-```
-
-**To make a new message, simply copy the message template below:**
-
-```lua
-{
-	Title = "Hello",
-	Time = "13:00",
-	Message = "Message here",
-},
-```
-
-**Then, simply paste it underneath the previous message:**
-
-```lua
-ScheduledMessages = {
-	Enabled = false, 
-	Messages = {
-		{
-			Title = "Welcome to the game",
-			Time = "12:00",
-			Message = "Message here",
-		},
-		{
-			Title = "Hello",
-			Time = "13:00",
-			Message = "Message here",
-		},
-	}
-}
-```
