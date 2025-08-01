@@ -1,6 +1,200 @@
 ---
 title: "Configuration"
-description: "Description of your new file."
+description: "Promptly has endless options for configuring and customising the product to your liking"
 ---
 
-![Gw I Xpo WAAA Fa BG Jp](/images/Gw-IXpoWAAAFaBG.jpg)
+<Tabs>
+  <Tab title="Group">
+    ```lua
+    GroupId = 0, --<< A Roblox group id 
+    RoleIds = {1, 255}, --<< Every role id that will have permission to edit the message and modify settings 
+    ```
+
+    **RoleIds** will contain a list of Group Role IDs that will be allowed to interact with the system as a whole, including editing of messages and in-game settings
+
+    For example, `RoleIds = {1, 2, 3, 4, 5, 6, 255}`
+  </Tab>
+  <Tab title="Message">
+    ```lua
+    DefaultMessage = "Replace this with a message", --<< Server startup message 
+    ```
+
+    Any message inside of the `""` will appear as the default message when the server starts up
+  </Tab>
+  <Tab title="Commands">
+    ```lua
+    CommandPrefix = "!", --<< Command prefix (can be anything) 
+    SetCommand = "setmessage", --<< Command to set the message 
+    NotifyCommand = "notify", --<< Command to notify all users
+    ClearCommand = "clearmessage", --<< Command to clear the message
+    ```
+
+    The **CommandPrefix** is what declares a command that will be sent in chat. For example, I would say "`!setmessage TEXT HERE`" in chat, followed by the text
+
+    You can edit the **SetCommand**, **NotifyCommand**, and **ClearCommand** to anything you want
+
+    For example, I can change the **SetCommand** from `"setmessage"` to `"set"`
+
+    ```lua
+    SetCommand = "set", --<< Command to set the message 
+    ```
+  </Tab>
+  <Tab title="Filtering">
+    ```lua
+    FilterEnabled = true, --<< Enable or disable message filtering (we are not responsible if your game is moderated) 
+    HarshFilter = false, --<< When set to true, numbers and combinations of letters could be flagged by Roblox automatically ->>
+    ```
+
+    - When **FilterEnabled** is set to `true`, the Roblox chat filter will automatically apply for any messages that appear.
+    - When **FilterEnabled** is set to `false`, it could put your Roblox game at risk of being moderated, however it could be unlikely unless reported or flagged
+
+    <Warning>
+      We are **<u>not</u>** responsible if your game is taken down for not having the filter enabled
+    </Warning>
+  </Tab>
+  <Tab title="Cooldown">
+    ```lua
+    Cooldown = 3, --<< Cooldown between setting messages again (affects the entire server) 
+    ```
+
+    - You can change the cooldown to any amount of seconds (including `0`)
+    - When a message is sent, the cooldown will be active until that number of seconds runs out, which prevents all other administrators from submitting updates to the banner
+    - You can set the cooldown to `0` if you wish for there to be no delay between updating messages
+
+      ```lua
+      Cooldown = 0, --<< Cooldown between setting messages again (affects the entire server) 
+      ```
+  </Tab>
+  <Tab title="Misc">
+    ```lua
+    ServerTimezone = "BST", --<< Server wide timezone (check the list of available timezones at the bottom) 
+    MultipleServers = true, --<< Enable or disable the ability to have messages be communicated across servers 
+    
+    WebhookUrl = "", --<< Discord webhook URL (leave blank if not in use)
+    ```
+
+    When **MultipleServers** is set to `true`, the system will automatically send any messages or updates to settings across all servers in your game
+
+    **WebhookUrl** is a discord webhook URL from a channel
+
+    **ServerTimezone** is similar to Vision, where you can enter a specific timezone.
+
+    These timezones will be available at the <u>bottom</u> of the configuration, and also found here:
+
+    # Timezones
+
+    GMT - Greenwich Mean Time\
+    BST - British Summer Time\
+    UTC - Coordinated Universal Time\
+    CET - Central European Time\
+    CEST - Central European Summer Time\
+    EET - Eastern European Time\
+    EEST - Eastern European Summer Time\
+    ET - Eastern Time\
+    EST - Eastern Standard Time\
+    EDT - Eastern Daylight Time\
+    CT - Central Time\
+    CST - Central Standard Time\
+    CDT - Central Daylight Time\
+    MT - Mountain Time\
+    MST - Mountain Standard Time\
+    MDT - Mountain Daylight Time\
+    PT - Pacific Time\
+    PST - Pacific Standard Time\
+    PDT - Pacific Daylight Time\
+    IST - Indian Standard Time\
+    JST - Japan Standard Time\
+    AEST - Australian Eastern Standard Time\
+    AEDT - Australian Eastern Daylight Time\
+    ACST - Australian Central Standard Time\
+    AWST - Australian Western Standard Time
+  </Tab>
+  <Tab title="Customisation">
+    ```lua
+    Customisation = { --<< Customise the look of the system 
+    	SelectedTheme = "Normal", 
+    	TextColour = Color3.fromRGB(255, 255, 255),
+    	BorderColour = Color3.fromRGB(255, 255, 255), 
+    	DefaultVisibility = true, 	
+        BorderEnabled = true, 
+    	ThemeColour = Color3.fromRGB(31, 34, 40), 
+    	Transparency = 0, 
+    	GhostMode = false, 
+    	UIPosition = 1, 		
+        NotificationSound = "rbxassetid://96867813755421",
+    },
+    ```
+
+    - **SelectedTheme**: automatically set to `"Normal"`
+
+      <Info>
+        **There are no other themes available. When introduced, they will be included here**
+      </Info>
+    - **TextColour**: changes the colour of the message banner text
+
+      <Info>
+        This must be a <u>RGB</u> colour, as shown below. You can edit this using **Roblox's built in colour picker**
+
+        ```lua
+        Color3.fromRGB(255, 255, 255)
+        ```
+      </Info>
+    - **BorderColour**: changes the colour of all elements with a border enabled
+
+      <Info>
+        This must be a <u>RGB</u> colour, as shown below. You can edit this using **Roblox's built in colour picker**
+
+        ```lua
+        Color3.fromRGB(255, 255, 255)
+        ```
+      </Info>
+    - **DefaultVisibility**
+
+      When set to `true`, the banner will automatically be visible when the server starts up
+
+      ```lua
+      DefaultVisibility = true, 	
+      ```
+
+      When set to `false`, you will **not** be able to view the message banner, but you can still **click** in the area where the banner is. You will <u>still</u> be able to interact with the banner as usual
+
+      ```lua
+      DefaultVisibility = false, 	
+      ```
+    - **BorderEnabled**
+
+      When set to `true`, it will enable all borders around visual elements\
+      When set to `false`, it will disable all borers around visual elements
+    - **ThemeColour**: this is a specific theme colour that applies to all visual elements
+
+      <Info>
+        This must be a <u>RGB</u> colour, as shown below. You can edit this using **Roblox's built in colour picker**
+
+        ```lua
+        Color3.fromRGB(255, 255, 255)
+        ```
+      </Info>
+    - **Transparency**: sets the transparency (see throughness) of the message banner
+
+      <Info>
+        This can be between 0 and 1 e.g `0.5`
+
+        ```lua
+        Transparency = 0.5,
+        ```
+      </Info>
+    - **GhostMode**
+
+      When set to `true`, the entire banner will be invisible, **except** the message text
+
+      <Info>
+        The message banner will just have the text with **no** background
+      </Info>
+      When set to `false`, the banner will be reset to its original state, which depends on other configuration options
+    - **UIPosition**
+
+      When set to 1, it will be right at the top of the screen
+  </Tab>
+</Tabs>
+
+aaa
