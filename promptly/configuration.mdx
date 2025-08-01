@@ -66,6 +66,20 @@ description: "Promptly has endless options for configuring and customising the p
       ```
   </Tab>
   <Tab title="Misc">
+    
+
+    ```lua
+    Cooldown = 3, --<< Cooldown between setting messages again (affects the entire server) 
+    ```
+
+    - You can change the cooldown to any amount of seconds (including `0`)
+    - When a message is sent, the cooldown will be active until that number of seconds runs out, which prevents all other administrators from submitting updates to the banner
+    - You can set the cooldown to `0` if you wish for there to be no delay between updating messages
+
+      ```lua
+      Cooldown = 0, --<< Cooldown between setting messages again (affects the entire ser
+      ```
+
     ```lua
     ServerTimezone = "BST", --<< Server wide timezone (check the list of available timezones at the bottom) 
     MultipleServers = true, --<< Enable or disable the ability to have messages be communicated across servers 
