@@ -237,25 +237,43 @@ By default, scheduled messages are **<u>not</u>** enabled
 
 ```lua
 ScheduledMessages = {
-		Enabled = false, 
-		Messages = {
-			{
-				Title = "Welcome to the game",
-				Time = "12:00",
-				Message = "Message here",
-			},
-		}
+	Enabled = false, 
+	Messages = {
+		{
+			Title = "Welcome to the game",
+			Time = "12:00",
+			Message = "Message here",
+		},
 	}
+}
 ```
 
-To make a new message, simply copy the message template below:
+**To make a new message, simply copy the message template below:**
 
-**{**
+```lua
+{
+	Title = "Hello",
+	Time = "13:00",
+	Message = "Message here",
+},
+```
 
-**Title = "Welcome to the game",**				
+**Then, simply paste it underneath the previous message:**
 
-**Time = "12:00",**				
-
-**Message = "Message here",**				
-
-**},**
+```lua
+ScheduledMessages = {
+	Enabled = false, 
+	Messages = {
+		{
+			Title = "Welcome to the game",
+			Time = "12:00",
+			Message = "Message here",
+		},
+		{
+			Title = "Hello",
+			Time = "13:00",
+			Message = "Message here",
+		},
+	}
+}
+```
