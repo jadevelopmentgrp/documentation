@@ -18,7 +18,7 @@ description: "Under the product folder provided, there will be Configuration scr
     ```
 
     - In your Roblox group, you will have roles which have their own ID. **Please add all of the role IDs** where those roles are specifically meant for staff
-    - All IDs must be placed inside of the {    }, **followed by a comma for each of them**, as shown
+    - All IDs must be placed inside of the     , **followed by a comma for each of them**, as shown
 
     ```lua
     ["Staff Ids"] = {1, 2, 250},
@@ -69,9 +69,134 @@ description: "Under the product folder provided, there will be Configuration scr
     ```
   </Accordion>
   <Accordion title="Terminal Settings">
-    
+    - `Interaction` is the type of interaction that takes place for users
+    - We have two options for interactions, `ProximityPrompt` (a popup asking you to hold E) or `ClickDetector` (click on the fingerprint sensor)
+
+    ```lua
+    ["Interaction"] = "ClickDetector",
+    ```
+
+    - You must also **set the maximum distance** required to interact with the terminal
+    - The lower the number, the closer you must be to interact
+
+    ```lua
+    ["Maximum Distance"] = 5,
+    ```
+
+    - We offer one theme, which is the beloved **Blurple**. We intend to add many more in the future, which you will be able to change to those by editing the configuraton element
+    - If you enter anything incorrect, it will just default to **Blurple**.
+
+    ```lua
+    ["UI Theme"] = "Blurple",
+    ```
+
+    - The zoom time is the amount of seconds it takes for your camera to zoom in/out of the terminal
+
+    ```lua
+    ["Zoom Time"] = 0.5,
+    ```
+
+    - You have the option to require terminal users to enter a PIN number when first accessing the system
+    - To enable this, change `false` to `true`
+    - To edit the PIN number, replace the `"1234"` with anything of your choosing, for example `"0491"`
+
+    ```lua
+    ["Requires PIN"] = {Enabled = false, PIN = "1234"},
+    ```
+
+    ![SS1 Pn](/images/SS1.png)
+
+    - You can also enable `External Notifications` - which display messages to users if they are not currently interacting with the system
+    - This feature is important for users who would like to be notified for certain events (e.g break ending, shift starting)
+
+    ![SS2 Pn](/images/SS2.png)
   </Accordion>
   <Accordion title="System Settings">
-    
+    ## Breaks and Clocking Out
+
+    - You are able to **toggle the ability for users to take breaks**
+    - To disable breaks, change `true` to `false`
+
+    ```lua
+    ["Breaks Allowed"] = true,
+    ```
+
+    <Tip>
+      You can also **disable or enable this in-game** using the system settings panel in Settings
+    </Tip>
+    - You can set the **minimum number of minutes** for a break to be classified as a break within the system
+    - This is required to be at least `1` by default
+    - For example, you could set this to 5, and it would require users to wait 5 minutes before the break can be ended
+
+    ```lua
+    ["Minimum Break Time"] = 1,
+    ```
+
+    - You can set the **maximum number of minutes** a break can be
+    - Once a break has reached the maximum, it will automatically end, and will notify the user
+
+    ```lua
+    ["Maximum Break Time"] = 3,
+    ```
+
+    - You can set the **minimum minutes** required before clocking out
+
+    ## Miscellaneous Settings
+
+    - You are able to **change the timezone** for the system based on any of the options below
+
+    <Accordion title="List of Timezones">
+      BST - British Summer Time
+
+      GMT - Greenwich Mean Time
+
+      EET - Eastern European Time
+
+      CET - Central European Time
+
+      ET - Eastern Time
+
+      CT - Central Time
+
+      AEST - Australian Eastern Standard Time
+
+      AEDT - Australian Eastern Daylight Time
+    </Accordion>
+    ```lua
+    ["Timezone"] = "BST",
+    ```
+
+    - You can **toggle the dashboard**, which removes the ability to view staff information, departments, shifts and reports
+    - All users would only be able to access the main functions: clock in, clock out, start/end breaks
+    - To disable this, change `true` to `false`
+
+    ```lua
+    ["Dashboard Enabled"] = true,
+    ```
+
+    - You can toggle **debug mode**, which allows us (developers) and support team to identify any issues you are facing
+    - You may be advised to enable this if you find yourself in need of support
+    - It is recommended to leave this disabled (as `false`) by default
+
+    ```lua
+    ["Debug Mode"] = false,
+    ```
+
+    - You can choose how often the **system data is periodically saved**
+    - We recommend leaving this at 300 seconds (5 minutes)
+
+    <Info>
+      **Data will automatically save every 5 minutes**, and will save when the server shuts down
+    </Info>
+    ```lua
+    ["Save Data"] = 300,
+    ```
+
+    - You can customise the cooldown, which prevents users from interacting with core functions (home page buttons), and notification popups
+    - This is required to be at least `1` by default
+
+    ```lua
+    ["Cooldown"] = 3,
+    ```
   </Accordion>
 </AccordionGroup>
