@@ -141,7 +141,7 @@ description: "Under the product folder provided, there will be Configuration scr
 
     - You can set the **minimum minutes** required before clocking out
 
-    ## Miscellaneous Settings
+    ## Core Settings
 
     - You are able to **change the timezone** for the system based on any of the options below
 
@@ -192,11 +192,100 @@ description: "Under the product folder provided, there will be Configuration scr
     ["Save Data"] = 300,
     ```
 
-    - You can customise the cooldown, which prevents users from interacting with core functions (home page buttons), and notification popups
+    - You can customise the **cooldown**, which prevents users from interacting with core functions (home page buttons), and notification popups
     - This is required to be at least `1` by default
 
     ```lua
     ["Cooldown"] = 3,
+    ```
+
+    ## Shifts
+
+    - You can customise the **minimum shift length** (in minutes), which is how long a shift must be when creating it
+    - This must be at least `1` minute by default
+    - For example, `Minimum Shift Length` is `60`, which means a shift must be at **least 60 minutes**, otherwise <u>it cannot be created</u>
+
+    ```lua
+    ["Minimum Shift Length"] = 1,
+    ```
+
+    - You can customise the **maximum shift length** (in minutes), which is the maximum duration of a shift
+    - This must be at least `1` minute by default
+    - For example, `Maximum Shift Length` is `120`, which means a shift **cannot be more than** 120 minutes
+
+    ```lua
+    ["Maximum Shift Length"] = 540,
+    ```
+
+    <Info>
+      **The default maximum shift length is 9 hours**
+    </Info>
+    ## Miscellaneous
+
+    - You can **toggle the ability for users to be able to request time off**
+    - To disable time off requests, change `true` to `false`
+
+    ```lua
+    ["Allow Timeoff Request"] = true,
+    ```
+
+    - You can set the **number of days in which a time off request start date must be within**
+    - For example, set the `Approval Window Days` to `7`, means that any time off requests must start within 7 days
+
+    ```lua
+    ["Approval Window Days"] = 7,
+    ```
+
+    - You can set the **minimum number of days required for a time off** request
+    - By default, this is required to be at least `1` day
+    - For example, if you set minimum days off to `14`, it would mean users <u>must</u> have time off for at least 14 days
+
+    ```lua
+    ["Minimum Days Off"] = 1,
+    ```
+
+    - You can set the **maximum number of days available for a time off** request
+    - The overall maximum is `365` days (`1 year` )
+    - For example, if you set the maximum number of days to `60`, it will allow users to **have their end date reach 60 days ahead of the current date**, therefore _offering a maximum of 60 days off_
+
+    ```lua
+    ["Maximum Time Off Days"] = 30,
+    ```
+
+    - You can toggle **description required** for when **users create time off** requests
+    - When disabled, users are **<u>not</u>** required to add a description for time off
+    - To disable this, change `true` to `false`
+
+    ```lua
+    ["Description Required"] = true,
+    ```
+
+    - You can customise the reasons for requesting time off
+    - The maximum number of reasons off is `5`
+
+    **<u>The following options are provided by default:</u>**
+
+    ```lua
+    ["Timeoff Types"] = {  
+    	"Personal Leave",
+    	"Training Leave",
+    	"Holiday Leave",
+    	"Relocation Leave",
+    	"Other Leave",
+    }
+    ```
+
+    To edit one of the above, just replace the contents within the `" "` \
+    For example, if I want to change `"Other Leave"` to `"General Leave"` 
+
+    ```lua
+    ["Timeoff Types"] = {  
+    	"Personal Leave",
+    	"Training Leave",
+    	"Holiday Leave",
+    	"Relocation Leave",
+    	"General Leave", -- I have edited this one
+    }
     ```
   </Accordion>
 </AccordionGroup>
