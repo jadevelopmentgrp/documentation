@@ -1,5 +1,77 @@
 ---
-title: 'New file'
-description: 'Description of your new file.'
+title: "Configuration"
+description: "Under the product folder provided, there will be Configuration script. Please open it to continue with this stage of the set up process"
 ---
 
+<Info>
+  If you are struggling with configuration, please only contact support **after** you have checked each section. If you do not understand something, you are more than welcome to reach out, however **we'd prefer that you read the information provided first**.
+</Info>
+
+**The following categories correlate, in order, to the configuration in the script provided.**
+
+<AccordionGroup>
+  <Accordion title="Group Settings" iconType="regular">
+    - Place your Roblox group ID, as the example shows below
+
+    ```lua
+    ["Group Id"] = 14665139, -- Group ID allocated to system
+    ```
+
+    - In your Roblox group, you will have roles which have their own ID. **Please add all of the role IDs** where those roles are specifically meant for staff
+    - All IDs must be placed inside of the {    }, **followed by a comma for each of them**, as shown
+
+    ```lua
+    ["Staff Ids"] = {1, 2, 250},
+    ```
+
+    - **Please do the same for roles that are intended to have the administrator** privileges in the system. Administrators can manage all of the data, and access the dashboard
+
+    ```lua
+    ["Admin Ids"] = {254, 255},
+    ```
+  </Accordion>
+  <Accordion title="Data Settings">
+    - Please create a random string of **letters and numbes for your data key**. This data key stores shifts, departments, time-off requests and clock-in data
+
+    **An example is shown below:**
+
+    ```lua
+    ["Data Key"] = "MyShiftSync-Data",
+    ```
+
+    - Please repeat the same for the following other data keys:
+
+    ```lua
+    ["Player Data Key"] = "MyShiftSync-Players",
+    ["Shifts Data Key"] = "MyShiftSync-Shifts",
+    ```
+
+    <Warning>
+      When you change these data keys, **it will reset all of your data**, so please keep that in mind
+    </Warning>
+    - You can enable `Vision Names`, which will fetch version `v.1.7` roleplay names. These names will be displayed on some areas of the system
+
+    <Info>
+      Vision Names will **only work when you have it in your game**
+    </Info>
+    ```lua
+    ["Vision Names"] = true,
+    ```
+  </Accordion>
+  <Accordion title="Webhook Settings">
+    - You can add a webhook straight from your Discord server, and we'll pick up any events and send them straight to the webhook that belongs to the channel!
+
+    <Tip>
+      Learn more about [**discord webhooks**](https://support.discord.com/hc/en-us/articles/228383668-Intro-to-Webhooks), and how to set them up
+    </Tip>
+    ```lua
+    ["Webhook URL"] = "",
+    ```
+  </Accordion>
+  <Accordion title="Terminal Settings">
+    
+  </Accordion>
+  <Accordion title="System Settings">
+    
+  </Accordion>
+</AccordionGroup>
