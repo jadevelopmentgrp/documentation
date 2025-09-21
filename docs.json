@@ -30,6 +30,17 @@
         ]
           },      
           {
+        "group": "ShiftSync",
+        "pages": [
+          "shiftsync/installation",
+          "shiftsync/configuration",
+          {
+            "group": "Features & Pages",
+            "pages": ["shiftsync/fp/feature"]
+          }
+        ]
+          },      
+          {
         "group": "Promptly",
         "pages": [
           "promptly/installation",
