@@ -36,7 +36,7 @@
           "shiftsync/configuration",
           {
             "group": "Features & Pages",
-            "pages": ["shiftsync/fp"]
+            "pages": ["shiftsync"]
           }
         ]
           },      
