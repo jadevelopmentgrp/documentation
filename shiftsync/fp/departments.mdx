@@ -1,5 +1,97 @@
 ---
-title: 'New file'
-description: 'Description of your new file.'
+title: "Departments"
+description: "The Departments page provides a centralized view of all departments, showing the name, total users, ID, and roles within each. You can also create, manage, and take action on departments directly from this dashboard."
 ---
 
+<Tabs>
+  <Tab title="Create Department">
+    To create a department, follow the steps below:
+
+    <Steps>
+      <Step title="Enter a department name">
+        Enter a **department name**, this can be anything you choose
+      </Step>
+      <Step title="Enter a department colour">
+        Select a **color** to assign to the department, which can help with identification.
+
+        <Info>
+          You must provide a \*\*HEX \*\*colour code input, meeting the following requirements:
+
+          - The input must include a **#** before the **HEX** code
+          - For example `#4b4dbf`
+        </Info>
+        - You can use a color picker, such as the [**Google Color Picker**](https://share.google/kliTy2XdvbuNEtcFf), to choose your preferred colour
+      </Step>
+      <Step title="Select group roles">
+        Select the **roles** from your Roblox group that you want to assign to the department. You can choose as few or as many as you like, but at least one role must be assigned.
+
+        - A list of roles from your Roblox group will be automatically fetched for you to select from.
+
+        ![Deptroles Jp](/images/deptroles.jpg)
+      </Step>
+      <Step title="Confirm creation">
+        Once you have completed the steps above, press **Send Request** and the system will handle the rest.
+
+        - After the department is created, it will appear in the **Departments** tab on the left.
+        - The system will also notify you if the creation was successful.
+      </Step>
+      <Step title="All done">
+        Congratulations! You created a department within **ShiftSync**
+
+        ![Dept234 Jp](/images/dept234.jpg)
+      </Step>
+    </Steps>
+  </Tab>
+  <Tab title="Add Users to Department">
+    Once you have created a department, you can view it by selecting it from the list of departments available to you.
+
+    ## Department Overview
+
+    You will see a detailed summary of the department’s information, **including**:
+
+    - Department name
+    - Department colour
+    - Department roles (group ranks)
+    - Total Users
+    - A list of users that are in the department
+
+    ![Deptoverivew Jp](/images/deptoverivew.jpg)
+
+    ## Add a user to a department
+
+    <Steps>
+      <Step title="Click the Add User button">
+        To add a new user to a department, click the **Add User** button in the **Department Overview**.
+      </Step>
+      <Step title="Enter a valid user ID">
+        You must enter a valid user ID for the system to successfully add the user to the department.
+
+        A valid user ID must meet all of the following criteria:
+
+        - **A user that exists on Roblox**
+        - **A user that is a staff member**
+          - A user with a group role that has staff permissions
+        - **A user that exists in your ShiftSync database**
+          - The user must have previously used your ShiftSync system
+
+        <Info>
+          The system will notify you if the user ID you entered **does not meet the criteria outlined above**.
+        </Info>
+      </Step>
+      <Step title="Confirm the user">
+        Once you know you have met the criteria outlined above, select **Confirm** to continue. The user will be automatically added to the department.
+      </Step>
+    </Steps>
+  </Tab>
+  <Tab title="Delete Department">
+    On the **Department Overview**, you can delete a department using the **Delete Department** button.
+
+    <Info>
+      You will **NOT **receive a confirmation prompt, so please proceed with caution.
+    </Info>
+    <Warning>
+      Once a department is deleted, it **cannot** be restored and will be permanently removed
+    </Warning>
+    ![Departmentgone Jp](/images/departmentgone.jpg)
+  </Tab>
+</Tabs>
