@@ -1,5 +1,39 @@
 ---
-title: 'New file'
-description: 'Description of your new file.'
+title: "Dashboard"
+description: "The Dashboard provides real-time insights into staff activity, showing each team member’s current status and their last clock-in time. It also allows you to view and manage time off requests, displaying both pending and approved requests in one place."
 ---
 
+![Dashboard1 Jp](/images/dashboard1.jpg)
+
+## Clocking Status
+
+The **Clocking Status** tab provides a real-time summary of all users on the system. It shows how many staff members are clocked in, clocked out, on breaks, or missing. You can also view a detailed list of each team member, including their current status and the exact time their status last changed.
+
+<Info>
+  This tab does not display all users on the system. It only shows anyone who has joined your game session, even if they have since left. **Note that this data resets when the server closes or restarts.**
+</Info>
+
+## Time Off Requests
+
+You can view all pending and approved time off requests. See how they appear on your dashboard below:
+
+<AccordionGroup>
+  <Accordion title="Pending Requests" defaultOpen icon="clock">
+    When a staff member submits a request, it will appear in the **Pending** section. Clicking the request will move it to the **Approved** section.
+
+    <Warning>
+      Once a request is approved, you **cannot move it back to Pending **status
+    </Warning>
+    - You can also hover over a request to view its full details, including the start and end dates, duration, status, reason, and description.
+
+    ![Pending1 Jp](/images/pending1.jpg)
+  </Accordion>
+  <Accordion title="Approved Requests" defaultOpen icon="badge-check">
+    Once a request is approved, it will appear in the **Approved** tab. You can hover over it to see all its details.
+
+    <Info>
+      Once you click an approved request, it will be **entirely deleted from the system**
+    </Info>
+    ![Approved1 Jp](/images/approved1.jpg)
+  </Accordion>
+</AccordionGroup>
