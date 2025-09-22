@@ -30,6 +30,17 @@
         ]
           },      
           {
+        "group": "ShiftSync",
+        "pages": [
+          "shiftsync/installation",
+          "shiftsync/configuration",
+          {
+            "group": "Features & Pages",
+            "pages": ["shiftsync/fp/temp"]
+          }
+        ]
+          },      
+          {
         "group": "Promptly",
         "pages": [
           "promptly/installation",
@@ -57,7 +68,7 @@
         },
         {
           "anchor": "Community",
-          "href": "https://discord.gg/E4yHfQegnP",
+          "href": "https://discord.com/invite/jadevelopment-962068926714511500",
           "icon": "discord"
         }
       ]
@@ -83,7 +94,7 @@
   "footer": {
     "socials": {
       "x": "https://x.com/jadevelopment",
-      "discord": "https://discord.gg/E4yHfQegnP",
+      "discord": "https://discord.com/invite/jadevelopment-962068926714511500",
       "earth-americas": "https://jadevelopment.co.uk"
     }
   }
