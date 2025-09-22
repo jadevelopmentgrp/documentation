@@ -1,5 +1,74 @@
 ---
-title: 'New file'
-description: 'Description of your new file.'
+title: "Settings"
+description: "Settings allow ShiftSync users to customise and enhance their experience. From disabling notification sounds to managing system access, everything you need is located in one place"
 ---
 
+## Client Settings
+
+Client settings are saved, so any changes you make will persist without needing to be adjusted again.
+
+<AccordionGroup>
+  <Accordion title="Notification Sounds" defaultOpen>
+    When enabled, you will receive **sound effects** for notifications displayed to you.
+  </Accordion>
+  <Accordion title="Notification Duration" defaultOpen>
+    You can customize the **notification duration**, allowing you to read them for longer if needed.
+
+    <Info>
+      The minimum duration is `1` second, and the maximum is `10` seconds
+    </Info>
+  </Accordion>
+  <Accordion title="Auto Hide Interface" defaultOpen>
+    When enabled, the interface (terminal) will automatically **zoom out** /hide after 5 minutes of inactivity.
+  </Accordion>
+  <Accordion title="Hover Sound Effect" defaultOpen>
+    When enabled, you will hear **sound effects** when hovering over elements of the UI.
+
+    <Info>
+      You may not be able to hear the sound effects if you (the licence owner) do not own the sound effects. See the [installation instructions](https://docs.jadevelopment.co.uk/shiftsync/installation) for more details
+    </Info>
+  </Accordion>
+  <Accordion title="External Notifications" defaultOpen>
+    When enabled, you will receive **off-system notifications**, such as alerts shown outside the main interface
+
+    - This feature is important for users who would like to be notified for certain events (e.g break ending, shift starting)
+
+    ![SS2 Pn](/images/SS2.png)
+  </Accordion>
+</AccordionGroup>
+
+## System Settings
+
+Unlike client settings, system settings **do not save**. They are intended for in-game customization for various purposes without modifying studio configuration.
+
+<AccordionGroup>
+  <Accordion title="Allow Breaks" defaultOpen>
+    When enabled, users will be **unable to take breaks**.
+
+    <Info>
+      Any users already on breaks when this setting is changed, will be taken off the break and notified
+    </Info>
+  </Accordion>
+  <Accordion title="Maximum Break Time" defaultOpen>
+    You can customise the **maximum break duration** in minutes.
+
+    <Warning>
+      The maximum break time must be at least `1` minute
+    </Warning>
+  </Accordion>
+  <Accordion title="Minimum Clockin Minutes" defaultOpen>
+    You can customise the **minimum required minutes** for a clock-in.
+  </Accordion>
+  <Accordion title="Allow Time Off Requests" defaultOpen>
+    When disabled, **time off requests** cannot be submitted by any user on the system.
+  </Accordion>
+  <Accordion title="PIN Entry Code" defaultOpen>
+    When enabled, all users must enter a **4-digit PIN** set by administrators before accessing clock in/out functions.
+  </Accordion>
+  <Accordion title="PIN Code" defaultOpen>
+    You can customize the **4-digit PIN code** (e.g., `1234`).
+  </Accordion>
+  <Accordion title="System Access" defaultOpen>
+    When disabled, only **administrators** will have access to the system, and all staff will be **kicked off**, with the terminal disabled for them.
+  </Accordion>
+</AccordionGroup>
