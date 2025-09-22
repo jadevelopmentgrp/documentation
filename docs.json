@@ -36,7 +36,7 @@
           "shiftsync/configuration",
           {
             "group": "Features & Pages",
-            "pages": ["shiftsync"]
+            "pages": ["shiftsync/fp/homepage", "shiftsync/fp/yourprofile", "shiftsync/fp/timeoff", "shiftsync/fp/dashboard", "shiftsync/fp/departments", "shiftsync/fp/reports", "shiftsync/fp/shifts", "shiftsync/fp/settings"]
           }
         ]
           },      
