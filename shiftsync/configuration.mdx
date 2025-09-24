@@ -112,6 +112,16 @@ description: "Under the product folder provided, there will be Configuration scr
     ![SS2 Pn](/images/SS2.png)
   </Accordion>
   <Accordion title="System Settings">
+    ## Boot Delay
+
+    - Some intensive or "laggy" games may struggle with loading times, causing ShiftSync to be tempremental upon booting
+    - To mitigate this, we've added a `Boot Delay`, which waits that many seconds before the system it initalised
+    - By default, this is set to `0`, as the system usually loads without issues
+
+    ```lua
+    ["Boot Delay"] = 0,
+    ```
+
     ## Breaks and Clocking Out
 
     - You are able to **toggle the ability for users to take breaks**
