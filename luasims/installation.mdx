@@ -8,14 +8,14 @@ description: "Comprehensive instructions on how to set up LuaSIMS with your game
 <Icon icon="money-bill-simple-wave" /> Ensure you have the licence for this product, through [**our website**](https://jadevelopment.co.uk/products/jadevelopment-vision) or our [**product hu**](https://www.roblox.com/games/9435095450/Product-Hub)**b**
 
 <Note>
-  You must enable **HTTP Requests** and **API Services** within the Game Settings tab in Roblox Studio. This is located under the Security section. Please ensure this is enabled before opening a ticket with our support team.
+  You must enable **HTTP Requests** and **API Services** within the Game Settings tab in Roblox Studio. This is located under the Security section. Please ensure this is enabled before opening a ticket with our support team. 
 </Note>
 
 <Steps>
   <Step title="Add the LuaSIMS bot to your discord server">
     If you have not already added the discord bot, you can do so [**here**](https://discord.com/oauth2/authorize?client_id=1333099278997913731&permissions=148445195472&integration_type=0&scope=bot). Please note, that you must be an **<u>Administrator</u>** of the guild (server) you wish to setup the LuaSIMS bot in
   </Step>
-  <Step title="Place the file in Workspace">
+  <Step title="Place the file in workspace">
     After downloading the product file from the licensing message, drag and drop into Workspace under your game
   </Step>
   <Step title="Ensure HTTP requests/API services are enabled">
@@ -26,4 +26,99 @@ description: "Comprehensive instructions on how to set up LuaSIMS with your game
   </Step>
 </Steps>
 
-Now, continue onto the rest of the [**configuration**](https://docs.jadevelopment.co.uk/luasims/configuration) process.
+## Configuration
+
+Under the **LuaSIMS 2.1** folder provided, there will be a <u>Settings</u> script. Please open it to continue.
+
+<AccordionGroup>
+  <Accordion title="Configure Group" icon="user-group">
+    An example for configuring your group is below
+
+    ```javascript
+    ["APIKey"] = "YOUR_API_KEY", -- API Key 
+    ["SchoolName"] = "jaDevelopment", -- School name
+    ["Domain"] = "jadev.group", -- Domain name for login
+    ["LogoID"] = 0, -- Custom school logo ID
+    ```
+
+    | **Options** | **Description**                                                                                              |
+    | :---------- | :----------------------------------------------------------------------------------------------------------- |
+    | APIKey      | Your unique licence key to the product. This can be found within your direct messages from LuaSIMS Cloud Bot |
+    | SchoolName  | Your specific school name                                                                                    |
+    | Domain      | The unique address for staff to login, this is a cosmetic feature, meaning it can be anything.               |
+    | LogoID      | A designated decal Image ID for your school, appears on all LuaSIMS assets/features                          |
+  </Accordion>
+  <Accordion title="Nametags" icon="tags">
+    A series of <u>attributes</u> for nametags can be toggled to adjust to your needs
+
+    ```javascript
+    ["NametagsEnabled"] = true, -- Toggle nametags being visible
+    ["NametagVariant"] = 2, -- Enter type of screen position (1: Modern, 2: Default)
+    ["StaffIcon"] = true, -- Toggles staff icon above nametag
+    ["IsolationTag"] = true, -- Given when a student is put in isolation
+    ```
+
+    - **To disable one of the above**, just change `true` to `false`
+  </Accordion>
+  <Accordion title="Gamepasses and Lanyards" icon="passport">
+    To disable the gamepass feature, just set the `GamepassID` to `0` . Otherwise, replace 0 with your gamepass ID if you wish to use this feature.
+
+    <Tabs>
+      <Tab title="Non Uniform Pass">
+        ```javascript
+        ["NonUniformPass"] = { 
+        	Enabled = false, 
+        	GamepassID = 0, 
+        },
+        ```
+
+        - **To disable the above**, just change `true` to `false` 
+      </Tab>
+      <Tab title="Timeout Pass">
+        ```javascript
+        ["TimeoutPass"] = { 
+        	Enabled = false, 
+        	GamepassID = 0, 
+        },
+        ```
+
+        - **To disable the above**, just change `true` to `false`
+      </Tab>
+      <Tab title="Toilet Pass">
+        ```javascript
+        ["ToiletPass"] = { 
+        	Enabled = false, 
+        	GamepassID = 0, 
+        },
+        ```
+
+        - **To disable the above**, just change `true` to `false`
+      </Tab>
+      <Tab title="Lanyards">
+        ```javascript
+        ["Lanyards"] = {
+        	Enabled = true, -- Should lanyards be automatically equiped on staff on server join
+        	ColorTheme = Color3.fromRGB(52, 108, 207), 
+        	SLTTexture = true -- Toggle SLT texture on lanyard if they are SLT
+        },
+        ```
+
+        When lanyards are set to `Enabled = true`, staff will receive lanyards automatically. Please set this to `false` if you wish or staff **not** to have built in LuaSIMS lanyards.
+      </Tab>
+    </Tabs>
+  </Accordion>
+  <Accordion title="Isolation" icon="road-barrier">
+    ```javascript
+    ["Isolation"] = {
+    	["IsolationTeam"] = game:GetService("Teams")["Isolation"], -- Set a designated Team for students to be isolated into
+    	["ExcludeOnLeave"] = true, -- If student leaves the game mid isolation
+    },
+    ```
+
+    2. To make **students be sent to a designated isolation** team  input the following `game:GetService("Teams")["Isolation"]`
+    1. To \*\*enable or disable \*\*exclusion on leave, change `true` to `false`. This selects if a student should be excluded from the game if they leave while in isolation
+  </Accordion>
+  <Accordion title="Session Data" icon="timer">
+    ty
+  </Accordion>
+</AccordionGroup>
