@@ -11,14 +11,14 @@ The MasterConfig is where the majority of Radiolink configuration takes place. Y
   <Tab title="Group Name">
     **Enter a group name of your choice** (this can be anything)
 
-    ```python
+    ```luau
     ["Group Name"] = "jaDevelopment", --Set to your groups name
     ```
   </Tab>
   <Tab title="Channels">
     **You can have as many channels as you wish**, an example of this section is shown below
 
-    ```python
+    ```luau
     ["Channels"] = {
     	--[[
     		-Add as many channels as you would like
@@ -70,7 +70,7 @@ The MasterConfig is where the majority of Radiolink configuration takes place. Y
     Battery makes the radio able to operate. There are **multiple settings** for this, including how long it takes the Radio’s battery to deplete by one percent and how fast it charges as well. You can also set the default amounts for this.
 
     <Info>
-      Radios in the dock that are **not **at 100% are shown with a yellow LED to show they are still charging.
+      Radios in the dock that are \*\*not \*\*at 100% are shown with a yellow LED to show they are still charging.
     </Info>
     If a radio <u>runs out of battery</u> you will be **unable to send or receive messages**.
 
@@ -103,7 +103,7 @@ The MasterConfig is where the majority of Radiolink configuration takes place. Y
     ```
   </Tab>
   <Tab title="Interface Settings">
-    At the bottom of the **MasterConfig,** there are <u>UI settings</u> where you can **disable statuses**, **notifications **or the **ability to pin the UI.** As well as this you can customise the UI colours with the provided options.
+    At the bottom of the **MasterConfig,** there are <u>UI settings</u> where you can **disable statuses**, \*\*notifications \*\*or the **ability to pin the UI.** As well as this you can customise the UI colours with the provided options.
 
     ```python
     ["Notification Sounds"] = true, --Allows notification sounds to be on or off
@@ -118,7 +118,7 @@ The MasterConfig is where the majority of Radiolink configuration takes place. Y
 
 ## DockConfig
 
-Each dock featured in the Radiolink folder has a **configuration **called '<u>DockConfig</u>', and is currently set to preset configuration settings. **Customise these options** with the following information that might help you
+Each dock featured in the Radiolink folder has a \*\*configuration \*\*called '<u>DockConfig</u>', and is currently set to preset configuration settings. **Customise these options** with the following information that might help you
 
 <AccordionGroup>
   <Accordion title="Whitelist" icon="check">
@@ -127,7 +127,7 @@ Each dock featured in the Radiolink folder has a **configuration **called '<u>Do
     <Warning>
       When the whitelist value is set to **false**, anyone can use the radio dock. If you are restricting the radios to groups, or users, please enable this feature by setting it to **true**
     </Warning>
-    **When configuring groups, enter as many role IDs** in the**{}**  as you wish, separated by a comma
+    **When configuring groups, enter as many role IDs** in the\*\*`{}`\*\*  as you wish, separated by a comma
 
     ```python
     [14665139] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 255},
@@ -167,7 +167,7 @@ Each dock featured in the Radiolink folder has a **configuration **called '<u>Do
     ![Oi[i[o Avi](/images/oi[i[o.avif)
   </Accordion>
   <Accordion title="Dock Channels & Permissions" icon="clipboard-check">
-    You can specify **what permissions the docks** from that radio has in **each of those channels.** If the dock doesn't have access to that channel you don’t need to list it at all. 
+    You can specify **what permissions the docks** from that radio has in **each of those channels.** If the dock doesn't have access to that channel you don’t need to list it at all.
 
     _The name of the channel does not need to be the name you set for it in the master config._
 
@@ -207,7 +207,7 @@ Each dock featured in the Radiolink folder has a **configuration **called '<u>Do
 
     **With my new piece of code**, I can add it to the already existing list of channels, so it becomes
 
-    ```python
+    ```lua
     ["Channels"] = { --This setting does not apply if global channels are enabled
     	--[[
     		-Don't include channels that you would like hidden for radios in this dock
@@ -248,7 +248,7 @@ Each dock featured in the Radiolink folder has a **configuration **called '<u>Do
     ```
 
     <Check>
-      To send alerts from the dock to **all channels**, simply remove all channel IDs from within the {} next to "Channels"
+      To send alerts from the dock to **all channels**, simply remove all channel IDs from within the `{}` next to "Channels"
 
       \
       **For example:**
