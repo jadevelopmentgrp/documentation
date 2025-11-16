@@ -8,14 +8,34 @@ description: "Enhance your Radiolink set up by completing the configuration proc
 The MasterConfig is where the majority of Radiolink configuration takes place. You will be able to manage **general settings**, **channels**, **battery**, **alerts**, **group information** and **interface settings**.
 
 <Tabs>
-  <Tab title="Group Name">
-    **Enter a group name of your choice** (this can be anything)
+  <Tab title="Group Info">
+    **Enter a community name of your choice** (this can be anything), as well as your \*\*Community ID \*\*for group roles to show under users on the radio
 
     ```luau
-    ["Group Name"] = "jaDevelopment", --Set to your groups name
+    ["Community Name"] = "jaDevelopment", --Set to your Community's name
+    
+    ["Roles"] = { --How the system determines the users role
+        ["Enabled"] = true,
+        ["Community"] = 14665139 -- (Community ID)
+    },
     ```
   </Tab>
   <Tab title="Channels">
+    ### Messaging
+
+    You are able to add a delay for **roleplay purposes **on how long it takes for messages to be recieved by other users to add a sense of realism to radio communications. Additionally, you can skip configuration of channel permissions by enabling global channels which **gives users access to all channels**.
+
+    <Warning>
+      Your game is **likely to be taken down **if you disable the message filtering option as it violates Roblox ToS and jaDevelopment is not responsible if this happens.
+    </Warning>
+    ```luau
+    ["Message Delay"] = 0.3, --Amount of seconds before a message is recieved after being sent
+    ["Global Channels"] = false, --Gives every radio access to all channels no matter dock config
+    ["Messages Filtering"] = true, --Uses roblox filtering with messages (we take no responsiblity if your game gets taken down)
+    ```
+
+    ### Channels 
+
     **You can have as many channels as you wish**, an example of this section is shown below
 
     ```luau
@@ -37,7 +57,7 @@ The MasterConfig is where the majority of Radiolink configuration takes place. Y
 
     **To create a new channel**, copy the following and insert it under the previous channel in the configuration:
 
-    ```python
+    ```luau
     ["Staff"] = { -- Name of the channel
     	["ChannelId"] = 3 -- Different channel ID
     },
@@ -45,7 +65,7 @@ The MasterConfig is where the majority of Radiolink configuration takes place. Y
 
     **As I have now created my new channel**, it should look like this:
 
-    ```python
+    ```luau
     ["Channels"] = {
     
     	--[[
@@ -66,15 +86,29 @@ The MasterConfig is where the majority of Radiolink configuration takes place. Y
     },
     ```
   </Tab>
+  <Tab title="Voice Chat">
+    Voice chat allows users to communicate over voice to other users who are using radios, however **voice chat must be enabled in the game settings** as well as the **server limit being at maximum 50 players**. Channel permissions for voice chat can be configured further in the dock config.
+
+    <Warning>
+      If the SelectedOnly setting is disabled and two users are in seperate channels simultaneously speaking, users that are in both channels will hear people speaking over each other
+    </Warning>
+    ```luau
+    ["Voice Chat"] = {
+    	["Enabled"] = false, --Is voice chat enabled
+    	["VisiblityReq"] = false, --Are only users with voice chat able to see that someone is broadcasting voice
+    	["SelectedOnly"] = true --Can you only hear voice chat on the currently selected channel (may cause overlapping if enabled)
+    },
+    ```
+  </Tab>
   <Tab title="Battery">
     Battery makes the radio able to operate. There are **multiple settings** for this, including how long it takes the Radio’s battery to deplete by one percent and how fast it charges as well. You can also set the default amounts for this.
 
     <Info>
-      Radios in the dock that are \*\*not \*\*at 100% are shown with a yellow LED to show they are still charging.
+      Radios in the dock that are **not** at 100% are shown with a yellow LED to show they are still charging.
     </Info>
     If a radio <u>runs out of battery</u> you will be **unable to send or receive messages**.
 
-    ```python
+    ```luau
     ["Battery"] = {
         ["Enabled"] = true, --Will the battery charge change
         ["Charge"] = 100, --The starting charge for the battery (from 0 - 100)
@@ -86,7 +120,7 @@ The MasterConfig is where the majority of Radiolink configuration takes place. Y
   <Tab title="Alerts">
     Alerts can be customised to be named differently with **different use cases** they could be used to alert staff of medical emergencies, require security or on call alerts.
 
-    ```python
+    ```luau
     ["Alerts"] = { --Allows staff members to submit alerts across the system
     	["Enabled"] = true,
     	["Name"] = "Emergency Alert"
@@ -94,18 +128,10 @@ The MasterConfig is where the majority of Radiolink configuration takes place. Y
     },
     ```
   </Tab>
-  <Tab title="Group Information">
-    ```python
-    ["Roles"] = { --How the system determines the users role
-        ["Enabled"] = true,
-        ["Group"] = 14665139 -- (Group ID)
-    },
-    ```
-  </Tab>
-  <Tab title="Interface Settings">
-    At the bottom of the **MasterConfig,** there are <u>UI settings</u> where you can **disable statuses**, \*\*notifications \*\*or the **ability to pin the UI.** As well as this you can customise the UI colours with the provided options.
+  <Tab title="Radio Interface">
+    At the bottom of the **MasterConfig,** there are <u>UI settings</u> where you can **disable statuses**, **notifications** or the **ability to pin the UI.** As well as this you can customise the UI colours with the provided options.
 
-    ```python
+    ```luau
     ["Notification Sounds"] = true, --Allows notification sounds to be on or off
     ["Pin UI"] = true, --Allows the ui to be pinned
     ["Statuses"] = true, --Options to change status such as busy, available etc
@@ -118,22 +144,22 @@ The MasterConfig is where the majority of Radiolink configuration takes place. Y
 
 ## DockConfig
 
-Each dock featured in the Radiolink folder has a \*\*configuration \*\*called '<u>DockConfig</u>', and is currently set to preset configuration settings. **Customise these options** with the following information that might help you
+Each dock featured in the Radiolink folder has a **configuration** called '<u>DockConfig</u>', and is currently set to preset configuration settings. **Customise these options** with the following information that might help you
 
 <AccordionGroup>
   <Accordion title="Whitelist" icon="check">
-    The whitelist can be**toggled on (true) or off**  **(false)**, and supports individual players or groups. You can have an unlimited amount of players and groups. Players can be listed with a mixture of user ids and usernames.
+    The whitelist can be **toggled on (true) or off**  **(false)**, and supports individual players or groups. You can have an unlimited amount of players and groups. Players can be listed with a mixture of user ids and usernames.
 
     <Warning>
       When the whitelist value is set to **false**, anyone can use the radio dock. If you are restricting the radios to groups, or users, please enable this feature by setting it to **true**
     </Warning>
-    **When configuring groups, enter as many role IDs** in the\*\*`{}`\*\*  as you wish, separated by a comma
+    **When configuring groups, enter as many role IDs** in the `{}` as you wish, separated by a comma
 
-    ```python
+    ```luau
     [14665139] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 255},
     ```
 
-    ```python
+    ```luau
     ["Permissions"] = {
     	["Whitelist"] = false, 
     	
@@ -144,50 +170,59 @@ Each dock featured in the Radiolink folder has a \*\*configuration \*\*called '<
     		163323741, --comtrlo
     	},
     
-    	["Groups"] = { --Add as many groups as you would like and role ids
+    	["Communities"] = { --Add as many communities as you would like and role ids
     		[14665139] = {255, 254},
     	}
     },
     ```
   </Accordion>
   <Accordion title="Pickup Interaction" icon="hand-dots">
-    ```python
+    ```luau
     ["Pickup"] = {
         ["Type"] = "ClickDetector", --ClickDetector or ProximityPrompt
         ["MaxDistance"] = 10 --How many studs away to pickup a radio
     }, 
     ```
 
-    **ClickDetector**
+    ### **ClickDetector**
 
-    ![Rejkejrey Pn](/images/rejkejrey.png)
+    ![Click Detector](/images/rejkejrey.png)
 
-    **ProximityPrompt**
+    ### **ProximityPrompt**
 
-    ![Oi[i[o Avi](/images/oi[i[o.avif)
+    ![Proximity Prompt](/images/oi[i[o.avif)
   </Accordion>
   <Accordion title="Dock Channels & Permissions" icon="clipboard-check">
     You can specify **what permissions the docks** from that radio has in **each of those channels.** If the dock doesn't have access to that channel you don’t need to list it at all.
 
+    ### Permission Types
+
+    - **TextRecieve** - View messages sent by users in that channel
+    - \*\*TextSend \*\*- Send messages sent to other users in that channel
+    - \*\*VoiceRecieve \*\*- Hear voice chat conversations happening in that channel
+    - \*\*VoiceBroadcast \*\*- Participate in voice chat conversations in that channel
+
     _The name of the channel does not need to be the name you set for it in the master config._
 
-    **<u>Default configuration for dock channels and permissions:</u>**
+    ### Channel Configuration
 
-    ```python
+    ```luau
     ["Channels"] = { --This setting does not apply if global channels are enabled
     	--[[
     		-Don't include channels that you would like hidden for radios in this dock
     		-Add as many channels as you would like
     		-Set the following permission levels for channels:
-    			1. Recieve
-    			2. Send
+    			1. TextRecieve
+    			2. TextSend
+    			3. VoiceRecieve
+    			4. VoiceBroadcast
     	]]
     	["General"] = {
-    		["Permissions"] = {"Send", "Recieve"},
+    		["Permissions"] = {"TextSend", "TextRecieve", "VoiceBroadcast", "VoiceRecieve"},
     		["ChannelId"] = 1 --The id you set your channel to in the main config
     	},
     	["Off Topic"] = {
-    		["Permissions"] = {"Send", "Recieve"},
+    		["Permissions"] = {"TextSend", "TextRecieve", "VoiceBroadcast", "VoiceRecieve"},
     		["ChannelId"] = 2
     	},
     },
@@ -198,34 +233,36 @@ Each dock featured in the Radiolink folder has a \*\*configuration \*\*called '<
     </Info>
     To create a new channel **for this dock**, <u>copy the following code</u> or one of the channels from the Channels section:
 
-    ```python
+    ```luau
     ["Staff"] = { -- Channel name
-        ["Permissions"] = {"Send", "Recieve"},
+        ["Permissions"] = {"TextSend", "TextRecieve", "VoiceBroadcast", "VoiceRecieve"},
         ["ChannelId"] = 3 -- Channel id
     },
     ```
 
     **With my new piece of code**, I can add it to the already existing list of channels, so it becomes
 
-    ```lua
+    ```luau
     ["Channels"] = { --This setting does not apply if global channels are enabled
     	--[[
     		-Don't include channels that you would like hidden for radios in this dock
     		-Add as many channels as you would like
     		-Set the following permission levels for channels:
-    			1. Recieve
-    			2. Send
+    			1. TextRecieve
+    			2. TextSend
+    			3. VoiceRecieve
+    			4. VoiceBroadcast
     	]]
     	["General"] = {
-    		["Permissions"] = {"Send", "Recieve"},
+    		["Permissions"] = {"TextSend", "TextRecieve", "VoiceBroadcast", "VoiceRecieve"},
     		["ChannelId"] = 1 --The id you set your channel to in the main config
     	},
     	["Off Topic"] = {
-    		["Permissions"] = {"Send", "Recieve"},
+    		["Permissions"] = {"TextSend", "TextRecieve", "VoiceBroadcast", "VoiceRecieve"},
     		["ChannelId"] = 2
     	},
     	["Staff"] = { -- Channel name
-       		["Permissions"] = {"Send", "Recieve"}, -- Permissions the channel WILL have
+       		["Permissions"] = {"TextSend", "TextRecieve", "VoiceBroadcast", "VoiceRecieve"}, -- Permissions the channel WILL have
         		["ChannelId"] = 3 -- Channel id
     	},
     },
@@ -234,9 +271,9 @@ Each dock featured in the Radiolink folder has a \*\*configuration \*\*called '<
   <Accordion title="Alerts" icon="siren-on">
     If enabled, the alerts **can be turned off only for radios in one dock** and you can also **specify which channels the alerts go to,** even if the radios in that dock do not have permission to view or send messages in the channels you set. As long as its in the master config, it will function as intended. You can also set it to false instead of a table and it sends it to all channels across the system
 
-    **<u>Default configuration for dock alerts</u>**
+    ### **Default configuration for dock alerts**
 
-    ```python
+    ```luau
     ["Alerts"] = {
     	["Enabled"] = true, --Can radios from this dock utilise the feature?
     	["Channels"] = {1} --Every channel ID the alerts will send to, separated by a comma
@@ -253,7 +290,7 @@ Each dock featured in the Radiolink folder has a \*\*configuration \*\*called '<
       \
       **For example:**
 
-      ```python
+      ```luau
       ["Channels"] = false
       ```
     </Check>
