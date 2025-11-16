@@ -9,7 +9,7 @@ The MasterConfig is where the majority of Radiolink configuration takes place. Y
 
 <Tabs>
   <Tab title="Group Info">
-    **Enter a community name of your choice** (this can be anything), as well as your \*\*Community ID\*\* for group roles to show under users on the radio
+    **Enter a community name of your choice** (this can be anything), as well as your **Community ID** for group roles to show under users on the radio
 
     ```luau
     ["Community Name"] = "jaDevelopment", --Set to your Community's name
@@ -139,6 +139,21 @@ The MasterConfig is where the majority of Radiolink configuration takes place. Y
     ["Secondary Colour"] = Color3.fromRGB(35, 35, 35), --Change this to any colour (a slightly darker tone of the Primary colour is ideal)
     ["Message Colour"] = Color3.fromRGB(35, 35, 35) --Sets the background colour of the radio message
     ```
+  </Tab>
+  <Tab title="Integrations">
+    We currently only offer **two system integrations** which are both sold by jaDevelopment or its subsidaries. For all integrations to correctly work please ensure the products are **correctly installed** and **running the latest software version**.
+
+    To disable any integration set the value to **nil** or otherwise the **supported system names**.
+
+    ```
+    ["Integrations"] = {
+    	["School MIS"] = nil, --Supported MIS Systems are "Vision" or "LuaSIMS" (both under jaDevelopment)
+    },
+    ```
+
+    <Note>
+      We would **love to hear suggestions** on what systems to integrate RadioLink with in the future
+    </Note>
   </Tab>
 </Tabs>
 
