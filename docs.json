@@ -1,3 +1,4 @@
+```json
 {
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
@@ -9,70 +10,113 @@
   },
   "favicon": "/favicon.svg",
   "navigation": {
+    "global": {
+      "anchors": [
+        {
+          "anchor": "System Status",
+          "icon": "lightbulb",
+          "href": "https://status.jadevelopment.co.uk/en"
+        },
+        {
+          "anchor": "Community",
+          "icon": "discord",
+          "href": "https://discord.com/invite/jadevelopment-962068926714511500"
+        }
+      ]
+    },
     "tabs": [
       {
         "tab": "Documentation",
         "groups": [
-                   {
+          {
             "group": "Get Started",
             "pages": [
               "introduction"
             ]
-          },      
+          },
           {
-        "group": "Vision MIS",
-        "pages": [
-          "visionmis/installation",
+            "group": "Vision MIS",
+            "pages": [
+              "visionmis/installation",
+              {
+                "group": "Features & Pages",
+                "pages": [
+                  "visionmis/fp/createprofile",
+                  "visionmis/fp/botfeatures",
+                  "visionmis/fp/loginanduseragreement",
+                  "visionmis/fp/homepage",
+                  "visionmis/fp/browsestudentspage",
+                  "visionmis/fp/studentprofile",
+                  "visionmis/fp/yeargrouppage",
+                  "visionmis/fp/browseallstaff",
+                  "visionmis/fp/eventpage",
+                  "visionmis/fp/staffattendance",
+                  "visionmis/fp/schooldetailspage",
+                  "visionmis/fp/timetablepage",
+                  "visionmis/fp/lessonoverviewpage",
+                  "visionmis/fp/usersandsecuritypage",
+                  "visionmis/fp/behaviourdashboard",
+                  "visionmis/fp/oncalls",
+                  "visionmis/fp/visionsettings"
+                ]
+              }
+            ]
+          },
           {
-            "group": "Features & Pages",
-            "pages": ["visionmis/fp/createprofile", "visionmis/fp/botfeatures", "visionmis/fp/loginanduseragreement", "visionmis/fp/homepage", "visionmis/fp/browsestudentspage", "visionmis/fp/studentprofile", "visionmis/fp/yeargrouppage", "visionmis/fp/browseallstaff", "visionmis/fp/eventpage", "visionmis/fp/staffattendance", "visionmis/fp/schooldetailspage", "visionmis/fp/timetablepage", "visionmis/fp/lessonoverviewpage", "visionmis/fp/usersandsecuritypage", "visionmis/fp/behaviourdashboard", "visionmis/fp/oncalls", "visionmis/fp/visionsettings"]
-          }
-        ]
-          },      
+            "group": "ShiftSync",
+            "pages": [
+              "shiftsync/installation",
+              "shiftsync/configuration",
+              {
+                "group": "Features & Pages",
+                "pages": [
+                  "shiftsync/fp/homepage",
+                  "shiftsync/fp/yourprofile",
+                  "shiftsync/fp/timeoff",
+                  "shiftsync/fp/dashboard",
+                  "shiftsync/fp/departments",
+                  "shiftsync/fp/reports",
+                  "shiftsync/fp/shifts",
+                  "shiftsync/fp/settings"
+                ]
+              }
+            ]
+          },
           {
-        "group": "ShiftSync",
-        "pages": [
-          "shiftsync/installation",
-          "shiftsync/configuration",
+            "group": "LuaSIMS",
+            "pages": [
+              "luasims/installation",
+              {
+                "group": "Features & Pages",
+                "pages": [
+                  "luasims/fp/homepage"
+                ]
+              }
+            ]
+          },
           {
-            "group": "Features & Pages",
-            "pages": ["shiftsync/fp/homepage", "shiftsync/fp/yourprofile", "shiftsync/fp/timeoff", "shiftsync/fp/dashboard", "shiftsync/fp/departments", "shiftsync/fp/reports", "shiftsync/fp/shifts", "shiftsync/fp/settings"]
-          }
-        ]
-          },      
-          {
-        "group": "Promptly",
-        "pages": [
-          "promptly/installation",
-          "promptly/configuration",
-          "promptly/features"
-          ]
+            "group": "Promptly",
+            "pages": [
+              "promptly/installation",
+              "promptly/configuration",
+              "promptly/features"
+            ]
           },
           {
             "group": "Radiolink",
             "pages": [
               "radiolink/installation",
+              {
+                "group": "Untitled Group",
+                "pages": []
+              },
               "radiolink/configuration",
               "radiolink/features"
             ]
           }
         ]
       }
-    ],
-    "global": {
-      "anchors": [
-        {
-          "anchor": "System Status",
-          "href": "https://status.jadevelopment.co.uk/en",
-          "icon": "lightbulb"
-        },
-        {
-          "anchor": "Community",
-          "href": "https://discord.com/invite/jadevelopment-962068926714511500",
-          "icon": "discord"
-        }
-      ]
-    }
+    ]
   },
   "logo": {
     "light": "/logo/light.svg",
@@ -99,3 +143,4 @@
     }
   }
 }
+```
