@@ -28,6 +28,11 @@
         "tab": "Documentation",
         "groups": [
           {
+            "group": "Elevate MIS",
+            "hidden": true,
+            "pages": []
+          },
+          {
             "group": "Get Started",
             "pages": [
               "introduction"
