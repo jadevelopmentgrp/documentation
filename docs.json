@@ -46,7 +46,6 @@
                 "group": "Features & Pages",
                 "pages": [
                   "visionmis/fp/createprofile",
-                  "visionmis/fp/botfeatures",
                   "visionmis/fp/loginanduseragreement",
                   "visionmis/fp/homepage",
                   "visionmis/fp/browsestudentspage",
@@ -61,7 +60,8 @@
                   "visionmis/fp/usersandsecuritypage",
                   "visionmis/fp/behaviourdashboard",
                   "visionmis/fp/oncalls",
-                  "visionmis/fp/visionsettings"
+                  "visionmis/fp/visionsettings",
+                  "visionmis/fp/botfeatures"
                 ]
               }
             ]
