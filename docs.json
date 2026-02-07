@@ -117,17 +117,6 @@
             ]
           }
         ]
-      },
-      {
-        "tab": "API Reference",
-        "groups": [
-          {
-            "group": "Get Started",
-            "pages": [
-              "api-reference/introduction"
-            ]
-          }
-        ]
       }
     ]
   },
