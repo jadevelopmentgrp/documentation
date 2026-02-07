@@ -1,6 +1,6 @@
 {
   "$schema": "https://mintlify.com/docs.json",
-  "theme": "mint",
+  "theme": "aspen",
   "name": "jaDevelopment Docs",
   "colors": {
     "primary": "#346cd0",
