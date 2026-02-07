@@ -124,7 +124,7 @@
           {
             "group": "Get Started",
             "pages": [
-              "coming-soon"
+              "api-reference/introduction"
             ]
           }
         ]
