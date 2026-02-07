@@ -88,10 +88,10 @@
               {
                 "group": "Features & Pages",
                 "pages": [
-                  "luasims/fp/homepage",
+                  "luasims/fp/createprofile",
                   "luasims/fp/loginpage",
-                  "luasims/fp/browseconsolepage",
-                  "luasims/fp/createprofile"
+                  "luasims/fp/homepage",
+                  "luasims/fp/browseconsolepage"
                 ]
               }
             ]
