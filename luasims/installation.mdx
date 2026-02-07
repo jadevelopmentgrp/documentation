@@ -28,7 +28,7 @@ description: "Comprehensive instructions on how to set up LuaSIMS with your game
 
 ## Configuration
 
-Under the **LuaSIMS 2.1** folder provided, there will be a <u>Settings</u> script. Please open it to continue.
+Under the **LuaSIMS **folder provided, there will be a <u>Settings</u> script. Please open it to continue.
 
 <AccordionGroup>
   <Accordion title="Configure Group" icon="user-group">
@@ -72,7 +72,7 @@ Under the **LuaSIMS 2.1** folder provided, there will be a <u>Settings</u> scrip
         },
         ```
 
-        - **To disable the above**, just change `true` to `false` 
+        - To**disable ** the above, just change `true` to `false` 
       </Tab>
       <Tab title="Timeout Pass">
         ```javascript
@@ -116,9 +116,53 @@ Under the **LuaSIMS 2.1** folder provided, there will be a <u>Settings</u> scrip
     ```
 
     2. To make **students be sent to a designated isolation** team  input the following `game:GetService("Teams")["Isolation"]`
-    1. To \*\*enable or disable \*\*exclusion on leave, change `true` to `false`. This selects if a student should be excluded from the game if they leave while in isolation
+    1. To**enable**  or **disable** exclusion on leave, change `true` to `false`. This selects if a student should be excluded from the game if they leave while in isolation
   </Accordion>
   <Accordion title="Session Data" icon="timer">
-    Coming Soon (Still being wrote)
+    An example for configuring your session data is below
+
+    ```javascript
+    	["SessionData"] = { 
+    		["Positive"] = { -- Positive points 
+    			"2 - Respect",
+    			"2 - Equality",
+    			"1 - Hardworking",
+    			"3 - Working well",
+    		},
+    		["Negative"] = { -- Negative points 
+    			"2 - Truancy",
+    			"1 - Disrespect",
+    		},
+    		["Locations"] = { -- locations 
+    			"Main Building",
+    			"Physical Education Building",
+    			"Sixth Form Building",
+    		},
+    		["LessonPeriods"] = { 
+    			"Period:1",  
+    			"Period:2",
+    			"Period:3",
+    			"Period:4",
+    			"Club & Misc:5",
+    		},
+    		["ExclusionTypes"] = {
+    			"Fighting",
+    			"Fail Roleplay",
+    			"Other"
+    ```
+
+    | **Options**    | **Description**                                                                                                  |
+    | :------------- | :--------------------------------------------------------------------------------------------------------------- |
+    | Positive       | The reasons behind and the number of points that a student can receive for positive behaviour.                   |
+    | Negative       | The reasons behind and the number of points that a student can receive for negative behaviour.                   |
+    | Locations      | The specific locations that are used when logging behaviour are displayed on the dashboard for logging purposes. |
+    | LessonPeriods  | The different periods/lessons for the regular day appear on the behaviour dashboard for logging purposes.        |
+    | ExclusionTypes | The reasons that senior leadership members can use in order to exclude students.                                 |
+
+    We recommend you use the **specific text formats provided **below when setting up this section to ensure a more professional setup, such as `AMOUNTOFPOINTS - Reason`for positive and negative behaviour, as well as `Title:Number` for lesson periods. This is completely optional if you wish to use your own way of formatting each section. 
   </Accordion>
 </AccordionGroup>
+
+## Discord Configuration
+
+Under the **LuaSIMS 2.1** folder provided, there will be a <u>Settings</u> script. Please open it to continue.
