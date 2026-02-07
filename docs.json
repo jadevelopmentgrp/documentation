@@ -96,8 +96,8 @@
                   "luasims/fp/createprofile",
                   "luasims/fp/loginpage",
                   "luasims/fp/homepage",
-                  "luasims/fp/studentoverview",
-                  "luasims/fp/browseconsolepage"
+                  "luasims/fp/browseconsolepage",
+                  "luasims/fp/studentoverview"
                 ]
               }
             ]
