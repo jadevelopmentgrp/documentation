@@ -4,7 +4,7 @@ description: "Comprehensive instructions on how to set up LuaSIMS with your game
 ---
 
 <Warning>
-  [**02/2026**] <u>Warning to Customers</u>: Some pages and sections in 'Features and Pages' are currently not added, or the information is not fully complete. Please bear with us while we get this sorted. If you require assistance with individual sections of unfinished documentation pages ,contact support.  
+  <u>Warning to Customers</u>: Some pages and sections in 'Features and Pages' are currently not added, or the information is not fully complete. Please bear with us while we get this sorted. If you require assistance with individual sections of unfinished documentation pages ,contact support.
 </Warning>
 
 ## Getting started
@@ -45,13 +45,14 @@ Under the **LuaSIMS** folder provided, there will be a <u>Settings</u> script. P
     ["LogoID"] = 0, -- Custom school logo ID
     ```
 
-    | **Options** | **Description**                                                                                              |
-    | :---------- | :----------------------------------------------------------------------------------------------------------- |
-    | APIKey      | Your unique licence key to the product. This can be found within your direct messages from LuaSIMS Cloud Bot |
-    | SchoolName  | Your specific school name                                                                                    |
-    | Domain      | The unique address for staff to login, this is a cosmetic feature, meaning it can be anything.               |
-    | LogoID      | A designated decal Image ID for your school, appears on all LuaSIMS assets/features                          |
+    | **Options** | **Description** |
+    | :-- | :-- |
+    | APIKey | Your unique licence key to the product. This can be found within your direct messages from LuaSIMS Cloud Bot |
+    | SchoolName | Your specific school name |
+    | Domain | The unique address for staff to login, this is a cosmetic feature, meaning it can be anything. |
+    | LogoID | A designated decal Image ID for your school, appears on all LuaSIMS assets/features |
   </Accordion>
+
   <Accordion title="Nametags" icon="tags">
     A series of <u>attributes</u> for nametags can be toggled to adjust to your needs
 
@@ -64,6 +65,7 @@ Under the **LuaSIMS** folder provided, there will be a <u>Settings</u> script. P
 
     - **To disable one of the above**, just change `true` to `false`
   </Accordion>
+
   <Accordion title="Gamepasses and Lanyards" icon="passport">
     To disable the gamepass feature, just set the `GamepassID` to `0` . Otherwise, replace 0 with your gamepass ID if you wish to use this feature.
 
@@ -111,6 +113,7 @@ Under the **LuaSIMS** folder provided, there will be a <u>Settings</u> script. P
       </Tab>
     </Tabs>
   </Accordion>
+
   <Accordion title="Isolation" icon="road-barrier">
     ```javascript
     ["Isolation"] = {
@@ -120,8 +123,9 @@ Under the **LuaSIMS** folder provided, there will be a <u>Settings</u> script. P
     ```
 
     2. To make **students be sent to a designated isolation** team  input the following `game:GetService("Teams")["Isolation"]`
-    1. To**enable**  or **disable** exclusion on leave, change `true` to `false`. This selects if a student should be excluded from the game if they leave while in isolation
+    3. To**enable**  or **disable** exclusion on leave, change `true` to `false`. This selects if a student should be excluded from the game if they leave while in isolation
   </Accordion>
+
   <Accordion title="Session Data" icon="timer">
     An example for configuring your session data is below
 
@@ -155,27 +159,73 @@ Under the **LuaSIMS** folder provided, there will be a <u>Settings</u> script. P
     			"Other"
     ```
 
-    | **Options**    | **Description**                                                                                                  |
-    | :------------- | :--------------------------------------------------------------------------------------------------------------- |
-    | Positive       | The reasons behind and the number of points that a student can receive for positive behaviour.                   |
-    | Negative       | The reasons behind and the number of points that a student can receive for negative behaviour.                   |
-    | Locations      | The specific locations that are used when logging behaviour are displayed on the dashboard for logging purposes. |
-    | LessonPeriods  | The different periods/lessons for the regular day appear on the behaviour dashboard for logging purposes.        |
-    | ExclusionTypes | The reasons that senior leadership members can use in order to exclude students.                                 |
+    | **Options** | **Description** |
+    | :-- | :-- |
+    | Positive | The reasons behind and the number of points that a student can receive for positive behaviour. |
+    | Negative | The reasons behind and the number of points that a student can receive for negative behaviour. |
+    | Locations | The specific locations that are used when logging behaviour are displayed on the dashboard for logging purposes. |
+    | LessonPeriods | The different periods/lessons for the regular day appear on the behaviour dashboard for logging purposes. |
+    | ExclusionTypes | The reasons that senior leadership members can use in order to exclude students. |
 
     We recommend you use the **specific text formats** provided below when setting up this section, however this is optional if this does not suit your needs. 
 
     - `AMOUNTOFPOINTS - Reason`- for positive and negative behaviour logging
-    -  `Title:Number` - for lesson period logging
+    -  `Title:Number` - for lesson period loggingConfiguration
   </Accordion>
 </AccordionGroup>
 
 ## Discord Configuration
 
-Work in Progress
+Once you have completed the ROBLOX Configuration, you can move on to configuring your Discord and Roblox permissions and other additional settings using the **LuaSIMS Discord Bot**. Please ensure you are <u>linked with jaDevelopmentID</u> via the bot before proceeding with anything. 
 
 <Danger>
-  We are sorry but due to the **Version 2.1.1 LuaSIMS BotTS Rewrite**, the bot configuration section for permissions is not able to be viewed via the main support documentation yet. Please create a discord ticket and request for LuaSIMS support on how to setup your permissions (as this is required to make LuaSIMS work)
+  **\[03/2026\] Important:** We are aware of an issue with setting up both Discord and Roblox permissions, saying they have not saved to the main database; this is **not the case,** and they work as intended and are a frontend error. Please ignore the error message and continue as normal, and it will work. We are working on pushing out a fix as quickly as possible. 
+</Danger>
 
-  This will be available soon.
+<Tabs>
+  <Tab title="Discord Role Permissions">
+    Discord permissions allow users to manage behaviour points and exclusions via the system, as well as key components that make it work. To do this, run the slash command`/pemissions add discord`and then follow the other prompts, in the example provided below.
+
+    ```csharp
+    /permissions add discord `role:` "School Staff Team" `permission:` "Staff"
+    ```
+
+    Upon using the command, you will be prompted with **two required fields**: a Discord role and a pre-set permission level. You will need to provide the role you wish to allow permissions for (such as "School Staff Team") and then the level of access you would like that specific role to have, which is explained in the table.
+
+    Once all permissions have been set up for a role, they will appear with the `/permissions list `slash command, which you must ensure you set permissions for **your selected discord roles; **otherwise, they will be unable to access staff Discord features - student roles do not require this. 
+
+    | **Options** | Description |
+    | :-- | :-- |
+    | Staff | This gives access to use the behaviour slash commands, such as adding or removing behaviour points |
+    | Senior Leadership Staff | This gives access to manage exclusions and behaviour slash commands, such as adding/removing behaviour points |
+    | LuaSIMS Administrator | This gives **full **access to the LuaSIMS system features and settings; only issue this to trusted individuals |
+  </Tab>
+  <Tab title="Roblox Role Permissions">
+    ROBLOX permissions allow users to access the staff side of LuaSIMS instead of the student view and set your permissions based on your community rank, restricting certain features to maintain realism. To do this, run the slash command`/pemissions add roblox`and then follow the other prompts, in the example provided below.
+
+    ```csharp
+    /permissions add roblox `rank:` "150" `permission:` "Staff"
+    ```
+
+    Upon using the command, you will be prompted with **two required fields**: a Roblox rank ID and a pre-set permission level. You will need to provide the rank ID you wish to allow permissions for (such as "150"), which can be found in the community rank configuration page, and then the level of access you would like that specific role to have, which is explained in the table. 
+
+    Once all permissions have been set up for a role, they will appear with the `/permissions list `slash command, which you must ensure you set permissions for **every single role, **otherwise they will be unable to access staff features - student ranks do not require this. 
+
+    | **Options** | Description |
+    | :-- | :-- |
+    | Staff | This gives access to the LuaSIMS system along with the ability to add/remove positive/negative points,  isolate students, and view profiles |
+    | SEN Staff | This gives the same permission level as staff, along with the ability to manage a student's special educational needs profile (including changing their SEN status and adding SEN notes) |
+    | Safeguarding Staff | This gives the same permission level as staff, along with the ability to make changes and manage a student's quick notes and safeguarding status |
+    | Administration Staff | This gives the same permission level as staff, along with the ability to make changes and manage a student's quick notes |
+    | Senior Leadership Staff | This gives the same permission levels as listed above, along with the ability to manage exclusions, allowing them to add/remove or edit exclusions for students |
+    | LuaSIMS Administrator | This gives **full **access to the LuaSIMS system features and settings; only issue this to trusted individuals |
+  </Tab>
+</Tabs>
+
+## Additional Features
+
+This section is **work in progress, **as this is <u>not currently on the live version</u>, check back soon. 
+
+<Danger>
+  Roblox commands and additional features are not yet available for **LuaSIMS 2.1 **
 </Danger>
