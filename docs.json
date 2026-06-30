@@ -105,9 +105,9 @@
           {
             "group": "Placeables",
             "pages": [
-              "installation",
-              "configuration",
-              "features"
+              "placeables/installation",
+              "placeables/configuration",
+              "placeables/features"
             ]
           },
           {
