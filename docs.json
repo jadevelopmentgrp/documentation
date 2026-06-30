@@ -114,12 +114,17 @@
             "group": "Radiolink",
             "pages": [
               "radiolink/installation",
-              {
-                "group": "Untitled Group",
-                "pages": []
-              },
               "radiolink/configuration",
               "radiolink/features"
+            ]
+          },
+          {
+            "group": "Placeables",
+            "hidden": true,
+            "pages": [
+              "installation",
+              "configuration",
+              "features"
             ]
           }
         ]
