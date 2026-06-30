@@ -103,6 +103,14 @@
             ]
           },
           {
+            "group": "Placeables",
+            "pages": [
+              "installation",
+              "configuration",
+              "features"
+            ]
+          },
+          {
             "group": "Promptly",
             "pages": [
               "promptly/installation",
@@ -116,15 +124,6 @@
               "radiolink/installation",
               "radiolink/configuration",
               "radiolink/features"
-            ]
-          },
-          {
-            "group": "Placeables",
-            "hidden": true,
-            "pages": [
-              "installation",
-              "configuration",
-              "features"
             ]
           }
         ]
