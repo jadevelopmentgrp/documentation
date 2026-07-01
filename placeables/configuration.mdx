@@ -20,6 +20,10 @@ hidden: true
     },
     ```
 
+    <Info>
+      **GroupId is not required**. You can simply set this to `0`, and rely on using UserIds for the system. <u>You do not need a group ID for the system to function.</u>
+    </Info>
+
     Permissions contains two types of "roles" - Regular and Admins
 
     - **Regular** is just simple access to using the system, and is restricted by configuration like maximum props, cooldown
@@ -164,7 +168,7 @@ hidden: true
 
     - `ConfirmPlacement`: set to **MouseButton1** by default, which is the left click. For mobile users, they will be required to **DOUBLE TAP** in order to place
     - `ChangeCategory`: set to `C` by default, when this keybind is pressed, the category will change (if any are available)
-    - `NextProp`: this will switch to the next prop available for the user, and will cycle through the interface. Set to `E` by default 
+    - `NextProp`: this will switch to the next prop available for the user, and will cycle through the interface. Set to `E` by default
     - `PreviousProp`: this will switch to the previous prop for the user, and will cycle through the interface. Set to `Q` by default
     - `RotateProp`: this will rotate the current prop at the number of degrees previously specified in the `RotationIncrement` setting
     - `ResetRotation`: this will reset the orientation of the current prop you're about to place to 0, helpful if you don't want to rotate at the current orientation. Set to `T` by default
