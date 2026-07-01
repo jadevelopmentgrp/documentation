@@ -6,7 +6,7 @@ hidden: true
 
 <Tabs>
   <Tab title="Group">
-    ```lua
+    ```luau
     GroupId = 14665139, -- Roblox group ID
     Permissions = {  
     	Regular = {
@@ -30,7 +30,7 @@ hidden: true
     For example, `RoleIds = {1, 2, 3, 4, 5, 6, 255}` - anyone with these role IDs will be assigned to that permission type
   </Tab>
   <Tab title="Placement">
-    ```lua
+    ```luau
     MaxProps = 3, -- Max props a single player can place
     PlacementDistance = 50, -- Max distance (studs) player can place from character
     ContinuousPlacement = true, -- After placing, automatically start placing the same prop again
@@ -56,7 +56,7 @@ hidden: true
     - **ValidColour**: this is the colour that the prop will be highlighted in when a placement is considered **valid** by the system. To change this, get an RGB colour code ([colour picker here](https://www.google.com/search?q=colour+picker&sca_esv=11b7b2325caaf8c6&sxsrf=APpeQnu6XsafczeGoEGHKwM_tlnBeeKLAA%3A1782913587973&ei=MxpFauPwOv2ChbIPrLTHkAQ&biw=792&bih=992&ved=0ahUKEwij1s3YzrGVAxV9QUEAHSzaEUIQ4dUDCBA&uact=5&oq=colour+picker&gs_lp=Egxnd3Mtd2l6LXNlcnAiDWNvbG91ciBwaWNrZXIyChAAGEcY1gQYsAMyChAAGEcY1gQYsAMyChAAGEcY1gQYsAMyChAAGEcY1gQYsAMyChAAGEcY1gQYsAMyChAAGEcY1gQYsAMyChAAGEcY1gQYsAMyChAAGEcY1gQYsAMyDRAAGIAEGIoFGEMYsAMyDRAAGIAEGIoFGEMYsANIthlQAFgAcAJ4AZABAJgBAKABAKoBALgBA8gBAJgCAqACC5gDAIgGAZAGCpIHATKgBwCyBwC4BwDCBwMyLTLIBwmACAE&sclient=gws-wiz-serp)) and replace the colour inside the brackets, for example: `Color3.fromRGB(48, 105, 63)` for a more darker green
     - **InvalidColour**: this is the colour that the prop will be highlighted in when a placement is considered **invalid** by the system. To change this, get an RGB colour code ([colour picker here](https://www.google.com/search?q=colour+picker&sca_esv=11b7b2325caaf8c6&sxsrf=APpeQnu6XsafczeGoEGHKwM_tlnBeeKLAA%3A1782913587973&ei=MxpFauPwOv2ChbIPrLTHkAQ&biw=792&bih=992&ved=0ahUKEwij1s3YzrGVAxV9QUEAHSzaEUIQ4dUDCBA&uact=5&oq=colour+picker&gs_lp=Egxnd3Mtd2l6LXNlcnAiDWNvbG91ciBwaWNrZXIyChAAGEcY1gQYsAMyChAAGEcY1gQYsAMyChAAGEcY1gQYsAMyChAAGEcY1gQYsAMyChAAGEcY1gQYsAMyChAAGEcY1gQYsAMyChAAGEcY1gQYsAMyChAAGEcY1gQYsAMyDRAAGIAEGIoFGEMYsAMyDRAAGIAEGIoFGEMYsANIthlQAFgAcAJ4AZABAJgBAKABAKoBALgBA8gBAJgCAqACC5gDAIgGAZAGCpIHATKgBwCyBwC4BwDCBwMyLTLIBwmACAE&sclient=gws-wiz-serp)) and replace the colour inside the brackets, for example: `Color3.fromRGB(79, 6, 7)` for a more darker red
 
-    ```text
+    ```luau
     ServerPropLimit = {
     	Enabled = true, -- Enable global server prop limit
     	MaxProps = 5, -- Maximum total props allowed on entire server
@@ -82,7 +82,7 @@ hidden: true
       - `Both`: the system will show a button and a tool for the player to choose
   </Tab>
   <Tab title="Notifications">
-    ```lua
+    ```luau
     Notifications = {
     	Enabled = true, -- Enable notification messages
     	Config = {
@@ -105,7 +105,7 @@ hidden: true
     - <u>It's important to keep the commas consistent when editing configuration tables</u>
   </Tab>
   <Tab title="System">
-    ```text
+    ```luau
     PropsLocation = game:GetService("ReplicatedStorage")["Init-Placeables"].Props, -- Folder containing the props
     PropSaving = {
     	Enabled = false, -- Save placed props to DataStore
@@ -130,7 +130,7 @@ hidden: true
     - **PropSaving:** props will be saved, which means if you place a prop down, leave the game and rejoin, it will still be in the same position and orientation. Edit mode will still be available for these props
       - When Enabled is set to `true`, props will be saved to a designated DataStore
       - This DataStore name should be configured under `DataStoreName`, and can be any string, for example:
-        ```text
+        ```luau
         DataStoreName = "propsaving94134",
         ```
       - `SaveInterval` is how many seconds to autosave the props. It's recommended to have this at `60` seconds (1 minute) to avoid overloading
@@ -174,5 +174,145 @@ hidden: true
       - If you'd like to change this to a keybind, change `CancelPlacement = Enum.UserInputType.MouseButton2,` to something like `CancelPlacement = Enum.KeyCode.V,` - make sure to keep the comma in place
     - `UndoPlacement`: deletes the last prop you placed, in order, so if you placed a Chair, Box, Table, it will remove Table, then Box, then Chair if you were to press this keybind 3 times. Set to `Z` by default
     - `EditMode`: disables placement flow and allows you to click on any of the props that you own (or have permission to edit), to delete, move or copy it. Set to `X` by default
+  </Tab>
+  <Tab title="Categories">
+    ### How do I add a new category?
+
+    1. Copy the template below
+
+    ```luau
+    Name = {
+    	Teams = {}, -- Teams allowed to use this category
+    	Ranks = {} -- Ranks allowed to use this category
+    },
+    ```
+
+    2. Place it under the categories that already exist in the configuration, so it looks like the following:
+
+    ```luau highlight={10-13}
+    Config.Categories = {
+    	Construction = {
+    		Teams = {}, -- Teams allowed to use this category
+    		Ranks = {255} -- Ranks allowed to use this category
+    	},
+    	Office = {
+    		Teams = {}, -- Teams allowed to use this category
+    		Ranks = {}, -- Ranks allowed to use this category
+    	},
+    	Name = {
+    		Teams = {}, -- Teams allowed to use this category
+    		Ranks = {} -- Ranks allowed to use this category
+    	},
+    }
+    ```
+
+    3. Then simply edit the Name by changing `Name` to whatever you want, like `Outdoor` or `Classroom`
+
+    ### How do I edit a category's permissions?
+
+    1. To add a new team, simply put the team name inside the `Teams = {},` table. You **must have the team in your actual game** and name it correctly here.
+    2. Let's say we have a team called `Site Staff`, and we want them to be able to use the Construction category
+    3. Simply type `"Site Staff"` in the Teams section of the category, so Construction now looks like this:
+
+    ```luau highlight={3} focus={3}
+    Config.Categories = {
+    	Construction = {
+    		Teams = {"Site Staff"}, -- Teams allowed to use this category
+    		Ranks = {255} -- Ranks allowed to use this category
+    	},
+    	Office = {
+    		Teams = {}, -- Teams allowed to use this category
+    		Ranks = {}, -- Ranks allowed to use this category
+    	},
+    }
+    ```
+
+    #### Adding a new rank to a category
+
+    1. To add a new rank ID, simply just type in the role ID inside the `Ranks = {},` table. Any users with this rank ID will be permitted to use the category
+    2. Let's say we have a role ID numbered `200`, and we want to add it to the Construction category, which already has `255` in the Ranks (in this example)
+    3. Simply add `200` to the Ranks section, as shown below
+
+    ```luau highlight={4} focus={4}
+    Config.Categories = {
+    	Construction = {
+    		Teams = {}, -- Teams allowed to use this category
+    		Ranks = {255, 200} -- Ranks allowed to use this category
+    	},
+    	Office = {
+    		Teams = {}, -- Teams allowed to use this category
+    		Ranks = {}, -- Ranks allowed to use this category
+    	},
+    }
+    ```
+  </Tab>
+  <Tab title="Props">
+    ### Adding a new prop
+
+    Let's use the props table below as an example:
+
+    ```luau
+    Config.Props = {
+    	{
+    		Name = "Barrier",
+    		Model = Config.Settings.PropsLocation.Barrier,
+    		Category = "Construction",
+    	},
+    }
+    ```
+
+    1. Copy the template below, and add it underneath the most previous prop, which in this example is `Barrier`
+
+    ```text
+    {
+    	Name = "Example",
+    	Model = Config.Settings.PropsLocation.Example,
+    	Category = "Construction",
+    },
+    ```
+
+    2. **Now, our props table looks like this:**
+
+    ```text highlight={7-11}
+    Config.Props = {
+    	{
+    		Name = "Barrier",
+    		Model = Config.Settings.PropsLocation.Barrier,
+    		Category = "Construction",
+    	},
+    	{
+    		Name = "Example",
+    		Model = Config.Settings.PropsLocation.Example,
+    		Category = "Construction",
+    	},
+    }
+    ```
+
+    3. You can edit the name of the prop under the `Name` section
+    4. The `Model` must be pointing to the name of the actual object (union, part, model), found under the **Props** folder. The props folder is located under `Placeables-ja` when you load in the product, as seen below
+       <Frame>
+         <img
+           src="/images/image-2.png"
+           alt="Image"
+           title="Image"
+           className="mx-auto"
+         />
+       </Frame>
+       **<u>All props that you add to the system must be under the Props folder</u>**
+    5. You can change the Category by editing the `Category` section to match one of your categories found in `Categories`
+
+    ### Add a prop with a space in the instance name
+
+    If you have a prop with a space in the instance (model) name, then set it to the following when identifying the location of the model
+
+    **For example:**
+
+    ```luau highlight={3} focus={3}
+    {
+    	Name = "White Box",
+    	Model = Config.Settings.PropsLocation["White Box"],
+    	Category = "Office",
+    },
+    ```
   </Tab>
 </Tabs>
