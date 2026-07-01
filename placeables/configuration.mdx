@@ -3,3 +3,176 @@ title: "Configuration"
 description: "Placeables has endless options for configuring and customising the product to your liking"
 hidden: true
 ---
+
+<Tabs>
+  <Tab title="Group">
+    ```lua
+    GroupId = 14665139, -- Roblox group ID
+    Permissions = {  
+    	Regular = {
+    		UserIds = {}, -- Users who get regular access by UserId
+    		RoleIds = {}, -- Ranks (roles) that get regular access
+    	},
+    	Admins = {
+    		UserIds = {}, -- Users who get admin access by UserId
+    		RoleIds = {255}, -- Ranks (roles) that get admin access
+    	},
+    },
+    ```
+
+    Permissions contains two types of "roles" - Regular and Admins
+
+    - **Regular** is just simple access to using the system, and is restricted by configuration like maximum props, cooldown
+    - **Admins** is unrestricted access to the system, so no cooldowns, no maximum prop count, and so on
+
+    For each of the types, you can have any number of user IDs and role IDs that will be assigned that specific type of permission
+
+    For example, `RoleIds = {1, 2, 3, 4, 5, 6, 255}` - anyone with these role IDs will be assigned to that permission type
+  </Tab>
+  <Tab title="Placement">
+    ```lua
+    MaxProps = 3, -- Max props a single player can place
+    PlacementDistance = 50, -- Max distance (studs) player can place from character
+    ContinuousPlacement = true, -- After placing, automatically start placing the same prop again
+    PreserveRotation = true, -- Keep last used rotation when selecting a new prop
+    ```
+
+    - **MaxProps**: defines the maximum number of props a player can place (with regular permissions)
+    - **PlacementDistance**: defines the maximum distance (in Roblox studs) a player can place a prop from their character
+    - **ContinuousPlacement**: when set to `true`, you will be able to continue placing your props after placing another. When set to `false`, it will stop placement flow after placing a single prop
+    - **PreserveRotation**: when set to `true`, the previous rotation of a prop you have just placed will be kept. For example, if you rotate a prop 90 degrees, and this setting is enabled, it will then keep that same orientation for the next prop in the placement flow
+
+    ```luau
+    GridSize = 0, -- Grid snapping (0 = disabled)
+    Cooldown = 1, -- Number of seconds to wait before placing again
+    RotationIncrement = math.rad(15), -- Degrees to rotate
+    ValidColour = Color3.fromRGB(56, 163, 44), -- Highlight colour when placement is valid
+    InvalidColour = Color3.fromRGB(255, 71, 71), -- Highlight colour when placement is invalid
+    ```
+
+    - **GridSize**: this is the amount at which the prop "snaps" to the surface. For example, a grid size of `0` allows for smooth placement, however a grid size of `2` will be more snappy and placed studs apart
+    - **Cooldown**: number of seconds to wait before placing again (prevents spam)
+    - **RotationIncrement**: the number of degrees to rotate when you press `R` (or the rotate keybind/button). If set to `90`, the prop will rotate 90 degrees each time. To edit this, just simply replace the `15`, so it would look like the following when setting to 90: `math.rad(90)`
+    - **ValidColour**: this is the colour that the prop will be highlighted in when a placement is considered **valid** by the system. To change this, get an RGB colour code ([colour picker here](https://www.google.com/search?q=colour+picker&sca_esv=11b7b2325caaf8c6&sxsrf=APpeQnu6XsafczeGoEGHKwM_tlnBeeKLAA%3A1782913587973&ei=MxpFauPwOv2ChbIPrLTHkAQ&biw=792&bih=992&ved=0ahUKEwij1s3YzrGVAxV9QUEAHSzaEUIQ4dUDCBA&uact=5&oq=colour+picker&gs_lp=Egxnd3Mtd2l6LXNlcnAiDWNvbG91ciBwaWNrZXIyChAAGEcY1gQYsAMyChAAGEcY1gQYsAMyChAAGEcY1gQYsAMyChAAGEcY1gQYsAMyChAAGEcY1gQYsAMyChAAGEcY1gQYsAMyChAAGEcY1gQYsAMyChAAGEcY1gQYsAMyDRAAGIAEGIoFGEMYsAMyDRAAGIAEGIoFGEMYsANIthlQAFgAcAJ4AZABAJgBAKABAKoBALgBA8gBAJgCAqACC5gDAIgGAZAGCpIHATKgBwCyBwC4BwDCBwMyLTLIBwmACAE&sclient=gws-wiz-serp)) and replace the colour inside the brackets, for example: `Color3.fromRGB(48, 105, 63)` for a more darker green
+    - **InvalidColour**: this is the colour that the prop will be highlighted in when a placement is considered **invalid** by the system. To change this, get an RGB colour code ([colour picker here](https://www.google.com/search?q=colour+picker&sca_esv=11b7b2325caaf8c6&sxsrf=APpeQnu6XsafczeGoEGHKwM_tlnBeeKLAA%3A1782913587973&ei=MxpFauPwOv2ChbIPrLTHkAQ&biw=792&bih=992&ved=0ahUKEwij1s3YzrGVAxV9QUEAHSzaEUIQ4dUDCBA&uact=5&oq=colour+picker&gs_lp=Egxnd3Mtd2l6LXNlcnAiDWNvbG91ciBwaWNrZXIyChAAGEcY1gQYsAMyChAAGEcY1gQYsAMyChAAGEcY1gQYsAMyChAAGEcY1gQYsAMyChAAGEcY1gQYsAMyChAAGEcY1gQYsAMyChAAGEcY1gQYsAMyChAAGEcY1gQYsAMyDRAAGIAEGIoFGEMYsAMyDRAAGIAEGIoFGEMYsANIthlQAFgAcAJ4AZABAJgBAKABAKoBALgBA8gBAJgCAqACC5gDAIgGAZAGCpIHATKgBwCyBwC4BwDCBwMyLTLIBwmACAE&sclient=gws-wiz-serp)) and replace the colour inside the brackets, for example: `Color3.fromRGB(79, 6, 7)` for a more darker red
+
+    ```text
+    ServerPropLimit = {
+    	Enabled = true, -- Enable global server prop limit
+    	MaxProps = 5, -- Maximum total props allowed on entire server
+    },
+    PropAutoDelete = {
+    	Enabled = true, -- Auto delete props after a duration
+    	Duration = 300, -- Seconds before a placed prop is removed (e.g 300 = 5 mins)
+    },
+    HidePropsOnDistance = {
+    	Enabled = true, -- Hide distant props to improve performance
+    	Distance = 100, -- Distance (studs) at which props get hidden
+    	Interval = 1, -- How often to check visibility in seconds (s)
+    },
+    AccessMethod = "Button", -- "Tool", "Button", or "Both" - how players can access the system
+    ```
+
+    - **ServerPropLimit**: when Enabled is set to `true`, there will be a maximum number of props all players using Placeables will have to abide by. When the `MaxProps` is reached, there will be a notification displayed to users saying the \`has been reached
+    - **PropAutoDelete**: when Enabled is set to `true`, all props a player places will be automatically deleted after the time taken reaches the `Duration`. For example, 300 seconds is 5 minutes, so after 5 minutes, the props a user places will be removed. This can be useful for events
+    - HidePropsOnDistance: when Enabled is set to `true`, the system will automatically hide any props further than the `Distance` set (100) to the character. This is the number of studs at which props are hidden. This can help with streaming and performance, limiting the number of props visible to the player, especially if you have a high amount. The `Interval` is the number of seconds the system waits to check visibility for the client
+    - **AccessMethod**
+      - `Button`: this shows a "View Props" button near the toolbar
+      - `Tool`: this is a tool available in the player's backpack, when equipped the system will be visible
+      - `Both`: the system will show a button and a tool for the player to choose
+  </Tab>
+  <Tab title="Notifications">
+    ```lua
+    Notifications = {
+    	Enabled = true, -- Enable notification messages
+    	Config = {
+    		UndoPlacement = true, -- Show notification when undoing
+    		PlaceProp = true, -- Show notification when placing
+    		DeleteProp = true, -- Show notification when deleting
+    		DeletedAll = true, -- Show notification when  deleting all props
+    		MaximumReached = true, -- Show when max props reached
+    		InvalidPlacement = true, -- Show when placement is invalid
+    		Cooldown = true, -- Show cooldown warning
+    		ServerLimitReached = true, -- Show when server limit is reached
+    		NothingToUndo = true, -- Show when there's nothing to undo
+    	}
+    },
+    ```
+
+    When notifications Enabled is set to `true`, all notification messages will be automatically enabled. You can toggle each specific notification from the `Config` table below it.
+
+    - For example, you can disable the notification that alerts players when they delete a prop, by changing `DeleteProp = true,` to `DeleteProp = false,` 
+    - <u>It's important to keep the commas consistent when editing configuration tables</u>
+  </Tab>
+  <Tab title="System">
+    ```text
+    PropsLocation = game:GetService("ReplicatedStorage")["Init-Placeables"].Props, -- Folder containing the props
+    PropSaving = {
+    	Enabled = false, -- Save placed props to DataStore
+    	DataStoreName = "PlaceablesProps26", -- Name of the datastore
+    	SaveInterval = 5, -- How often to auto save
+    },
+    Keybinds = {
+    	ConfirmPlacement = Enum.UserInputType.MouseButton1, -- Left click to place (double tap for mobile)
+    	ChangeCategory = Enum.KeyCode.C, -- Change category
+    	NextProp = Enum.KeyCode.E, -- Next prop in list
+    	PreviousProp = Enum.KeyCode.Q, -- Previous prop in list
+    	RotateProp = Enum.KeyCode.R, -- Rotate current prop
+    	ResetRotation = Enum.KeyCode.T, -- Reset rotation to 0
+    	RemoveAll = Enum.KeyCode.L, -- Delete all your props
+    	CancelPlacement = Enum.UserInputType.MouseButton2, -- Right click to cancel
+    	UndoPlacement = Enum.KeyCode.Z, -- Undo last placement
+    	EditMode = Enum.KeyCode.X, -- Toggle edit mode
+    },
+    ```
+
+    - **PropsLocation**: the folder which the Props is located, **<u>you will likely never need or want to touch this</u>**
+    - **PropSaving:** props will be saved, which means if you place a prop down, leave the game and rejoin, it will still be in the same position and orientation. Edit mode will still be available for these props
+      - When Enabled is set to `true`, props will be saved to a designated DataStore
+      - This DataStore name should be configured under `DataStoreName`, and can be any string, for example:
+        ```text
+        DataStoreName = "propsaving94134",
+        ```
+      - `SaveInterval` is how many seconds to autosave the props. It's recommended to have this at `60` seconds (1 minute) to avoid overloading
+
+    ---
+
+    ### Keybinds
+
+    > You can set custom keybinds for specific actions, for example confirming a placement can be done by pressing a key rather than your mouse
+
+    #### How to change a keybind?
+
+    1. You must keep the `Enum.KeyCode` section of the keybind allocation, this is vital
+    2. In Roblox Studio, if you remove the original keycode, and begin typing, it will show a popup box allowing you to look at all of the keycodes available. Alternatively, you can just type the keycode in
+    3. For example, going from `ChangeCategory = Enum.KeyCode.C` to `ChangeCategory = Enum.KeyCode.G`
+
+    <Tip>
+      For help on keycodes, please visit [**Roblox's documentation**](https://create.roblox.com/docs/reference/engine/enums/KeyCode)
+    </Tip>
+
+    #### How to change a button?
+
+    1. You must keep the `Enum.UserInputType`section of the button allocation
+    2. In Roblox Studio, if you remove the original input type, and begin typing, it will show a popup box allowing you to look at all of the options available
+    3. For example, going from `ConfirmPlacement = Enum.UserInputType.MouseButton1` to `ConfirmPlacement = Enum.UserInputType.MouseButton2`
+
+    <Tip>
+      For help on user input types, please visit [**Roblox's documentation**](https://create.roblox.com/docs/reference/engine/enums/UserInputType)
+    </Tip>
+
+    ### Keybinds
+
+    - `ConfirmPlacement`: set to **MouseButton1** by default, which is the left click. For mobile users, they will be required to **DOUBLE TAP** in order to place
+    - `ChangeCategory`: set to `C` by default, when this keybind is pressed, the category will change (if any are available)
+    - `NextProp`: this will switch to the next prop available for the user, and will cycle through the interface. Set to `E` by default 
+    - `PreviousProp`: this will switch to the previous prop for the user, and will cycle through the interface. Set to `Q` by default
+    - `RotateProp`: this will rotate the current prop at the number of degrees previously specified in the `RotationIncrement` setting
+    - `ResetRotation`: this will reset the orientation of the current prop you're about to place to 0, helpful if you don't want to rotate at the current orientation. Set to `T` by default
+    - `RemoveAll`: this will delete all of your props, with a popup confirmation beforehand. Set to `L` by default
+    - `CancelPlacement`: this will cancel the placement, set to `MouseButton2` by default
+      - If you'd like to change this to a keybind, change `CancelPlacement = Enum.UserInputType.MouseButton2,` to something like `CancelPlacement = Enum.KeyCode.V,` - make sure to keep the comma in place
+    - `UndoPlacement`: deletes the last prop you placed, in order, so if you placed a Chair, Box, Table, it will remove Table, then Box, then Chair if you were to press this keybind 3 times. Set to `Z` by default
+    - `EditMode`: disables placement flow and allows you to click on any of the props that you own (or have permission to edit), to delete, move or copy it. Set to `X` by default
+  </Tab>
+</Tabs>
