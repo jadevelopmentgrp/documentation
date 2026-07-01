@@ -34,11 +34,6 @@
             ]
           },
           {
-            "group": "Elevate MIS",
-            "hidden": true,
-            "pages": []
-          },
-          {
             "group": "Vision MIS",
             "pages": [
               "visionmis/installation",
@@ -106,8 +101,8 @@
             "group": "Placeables",
             "pages": [
               "placeables/installation",
-              "placeables/configuration",
-              "placeables/features"
+              "placeables/features",
+              "placeables/configuration"
             ]
           },
           {
