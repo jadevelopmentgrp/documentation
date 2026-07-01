@@ -101,8 +101,8 @@
             "group": "Placeables",
             "pages": [
               "placeables/installation",
-              "placeables/features",
-              "placeables/configuration"
+              "placeables/configuration",
+              "placeables/features"
             ]
           },
           {
